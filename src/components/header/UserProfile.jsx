@@ -23,7 +23,7 @@ function UserProfile() {
       </Link>
 
       {/* hamburget menu */}
-      <div className="font-space-grotesk font-semibold bg-orange-900/50 rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-orange-900 hover:shadow-md hover:text-orange-500">
+      <div className="lg:hidden font-space-grotesk font-semibold bg-orange-900/50 rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-orange-900 hover:shadow-md hover:text-orange-500">
         <IoMenu className="text-2xl"></IoMenu>
       </div>
     </div>
