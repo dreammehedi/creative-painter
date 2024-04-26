@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../auth/AuthProvider";
 
 function Register() {
+  // auth context data
+  const { registerUser, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
   // handle user registration
   const handleRegister = (e) => {
     e.preventDefault();
@@ -19,16 +25,37 @@ function Register() {
       password,
       confirmPassword
     );
+
+    registerUser(email, password)
+      .then(() => {
+        toast.success("Register Complete.");
+        currentField.reset();
+      })
+      .catch(() => {
+        toast.error("An error occurred!");
+      });
   };
 
   // handle user login google
   const handleGoogleLogin = () => {
-    console.log("google login");
+    signInWithGoogle()
+      .then(() => {
+        toast.success("Register Complete.");
+      })
+      .catch(() => {
+        toast.error("An error occurred!");
+      });
   };
 
   // handle user login github
   const handleGithubLogin = () => {
-    console.log("github login");
+    signInWithGithub()
+      .then(() => {
+        toast.success("Register Complete.");
+      })
+      .catch(() => {
+        toast.error("An error occurred!");
+      });
   };
   return (
     <>

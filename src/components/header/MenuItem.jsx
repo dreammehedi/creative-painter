@@ -21,6 +21,11 @@ const menuContent = [
     name: "About",
     path: "/about",
   },
+  {
+    id: 5,
+    name: "Register",
+    path: "/register",
+  },
 ];
 function MenuItem() {
   return (

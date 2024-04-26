@@ -1,5 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../auth/AuthProvider";
 function Login() {
+  // auth context data
+  const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+
   // handle user login form submission
   const handleLogin = (e) => {
     e.preventDefault();
@@ -11,12 +17,24 @@ function Login() {
   };
   // handle user login google
   const handleGoogleLogin = () => {
-    console.log("google login");
+    signInWithGoogle()
+      .then(() => {
+        toast.success("Successfully logged in.");
+      })
+      .catch(() => {
+        toast.error("An error occurred!");
+      });
   };
 
   // handle user login github
   const handleGithubLogin = () => {
-    console.log("github login");
+    signInWithGithub()
+      .then(() => {
+        toast.success("Successfully logged in.");
+      })
+      .catch(() => {
+        toast.error("An error occurred!");
+      });
   };
   return (
     <>
