@@ -10,6 +10,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import MyArtCraft from "../pages/myart&craft/MyArtCraft";
 import Register from "../pages/register/Register";
+import ProtectRoute from "../protect-route/ProtectRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-art-craft",
-        element: <MyArtCraft></MyArtCraft>,
+        element: (
+          <ProtectRoute>
+            <MyArtCraft></MyArtCraft>
+          </ProtectRoute>
+        ),
       },
       {
         path: "/all-art-craft",
@@ -38,7 +43,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-craft",
-        element: <AddCraft></AddCraft>,
+        element: (
+          <ProtectRoute>
+            <AddCraft></AddCraft>
+          </ProtectRoute>
+        ),
       },
       {
         path: "/faq",
