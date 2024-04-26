@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
+import SectionTitle from "../section/SectionTitle";
 import ServiceItem from "./ServiceItem";
 
 function Service() {
@@ -7,11 +8,7 @@ function Service() {
     <section className="my-4 md:my-6 lg:my-8">
       <div className="container">
         {/* service title */}
-        <div className="text-center">
-          <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-extrabold font-dancing-script text-orange-500">
-            Service
-          </h2>
-        </div>
+        <SectionTitle title="Our Services"></SectionTitle>
 
         {/* service items */}
         <div className="grid grid-cols-3 justify-between gap-4 md:gap-6">

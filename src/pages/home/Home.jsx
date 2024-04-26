@@ -1,4 +1,5 @@
 import Banner from "../../components/banner/Banner";
+import Craft from "../../components/craft/Craft";
 import Service from "../../components/service/Service";
 
 function Home() {
@@ -6,6 +7,7 @@ function Home() {
     <>
       <section>
         <Banner></Banner>
+        <Craft></Craft>
         <Service></Service>
       </section>
     </>

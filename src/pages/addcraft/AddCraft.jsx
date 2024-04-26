@@ -1,5 +1,6 @@
 import CurrencyInput from "react-currency-input-field";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 function AddCraft() {
   // find path
@@ -18,9 +19,8 @@ function AddCraft() {
     const customization = currentField.customization.value;
     const email = currentField.email.value;
     const name = currentField.name.value;
-    // const customization = currentField.customization;
 
-    console.log(
+    const newCraft = {
       itemName,
       subCategoryName,
       shortDescription,
@@ -28,10 +28,35 @@ function AddCraft() {
       price,
       time,
       stockStatus,
+      customization,
       email,
       name,
-      customization
-    );
+    };
+
+    fetch("http://localhost:5000/crafts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCraft),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Craft data Added successfully.",
+            icon: "success",
+          });
+          currentField.reset();
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: "An error occurred!",
+            icon: "error",
+          });
+        }
+      });
   };
   return (
     <>
@@ -91,14 +116,12 @@ function AddCraft() {
           <div className="col-span-6  space-y-1 text-base font-medium grid grid-cols-3 gap-4 md:gap-6 items-center justify-between text-center">
             {/* price */}
             <CurrencyInput
+              required
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               id="price"
               name="price"
               placeholder="$ Price..."
               decimalsLimit={2}
-              onValueChange={(value, name, values) =>
-                console.log(value, name, values)
-              }
             ></CurrencyInput>
 
             {/* customization */}
