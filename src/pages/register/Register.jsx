@@ -32,11 +32,14 @@ function Register() {
   };
   return (
     <>
-      <div className="my-4 md:my-6 lg:my-8 w-full max-w-md mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
+      <div className="my-4 md:my-6 lg:my-8 w-full max-w-2xl mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
         <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">
           Registration
         </h1>
-        <form onSubmit={handleRegister} className="space-y-6">
+        <form
+          onSubmit={handleRegister}
+          className="grid grid-cols-2 justify-between gap-4"
+        >
           <div className="space-y-1 text-base font-medium">
             <label htmlFor="firstName" className="block text-gray-600">
               First Name
@@ -63,7 +66,7 @@ function Register() {
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-500 bg-gray-50 text-gray-800 focus:ring-orange-500/50 outline-none focus:ring-orange-900 focus:shadow"
             />
           </div>
-          <div className="space-y-1 text-base font-medium">
+          <div className="col-span-2 space-y-1 text-base font-medium">
             <label htmlFor="email" className="block text-gray-600">
               Email
             </label>
@@ -76,7 +79,7 @@ function Register() {
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-500 bg-gray-50 text-gray-800 focus:ring-orange-500/50 outline-none focus:ring-orange-900 focus:shadow"
             />
           </div>
-          <div className="space-y-1 text-base font-medium">
+          <div className="col-span-2 space-y-1 text-base font-medium">
             <label htmlFor="photoURL" className="block text-gray-600">
               Photo URL
             </label>
@@ -115,7 +118,7 @@ function Register() {
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-500 bg-gray-50 text-gray-800 focus:ring-orange-500/50 outline-none focus:ring-orange-900 focus:shadow"
             />
           </div>
-          <button className="block w-full p-3 text-center rounded-md text-gray-50 bg-orange-500 font-poppins font-medium hover:bg-orange-500/50">
+          <button className="col-span-2 block w-full p-3 text-center rounded-md text-gray-50 bg-orange-500 font-poppins font-medium hover:bg-orange-500/50">
             Register
           </button>
         </form>
