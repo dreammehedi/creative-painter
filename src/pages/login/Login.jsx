@@ -1,10 +1,14 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
+import SlugBanner from "../../components/slug_banner/SlugBanner";
 import SocialLogin from "../../components/social_login/SocialLogin";
 function Login() {
+  // find path
+  const { pathname } = useLocation();
+
   // password toggle
   const [showPass, setShowPass] = useState(false);
 
@@ -29,6 +33,7 @@ function Login() {
 
   return (
     <>
+      <SlugBanner path={pathname}></SlugBanner>
       <div className="my-4 md:my-6 lg:my-8 w-full max-w-md mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
         <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">
           Login
