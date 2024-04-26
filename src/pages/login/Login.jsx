@@ -1,11 +1,5 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../auth/AuthProvider";
 function Login() {
-  // auth context value =
-  const { googleLogin } = useContext(AuthContext);
-  console.log(googleLogin);
-
   // handle user login form submission
   const handleLogin = (e) => {
     e.preventDefault();
