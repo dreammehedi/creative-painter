@@ -44,7 +44,7 @@ function Login() {
               name="email"
               id="email"
               placeholder="Enter Your Email..."
-              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-500 bg-gray-50 text-gray-800 focus:ring-orange-500/50 outline-none focus:ring-orange-900 focus:shadow"
+              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
             />
           </div>
           <div className="space-y-1 text-base font-medium">
@@ -58,7 +58,7 @@ function Login() {
                 name="password"
                 id="password"
                 placeholder="Enter Your Password..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-500 bg-gray-50 text-gray-800 focus:ring-orange-500/50 outline-none focus:ring-orange-900 focus:shadow"
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               />
 
               <span
