@@ -2,6 +2,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import PropTypes from "prop-types";
@@ -12,6 +13,11 @@ function AuthProvider({ children }) {
   // register new user
   const registerUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // login new user
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // sign in google account
@@ -25,7 +31,12 @@ function AuthProvider({ children }) {
     return signInWithPopup(auth, githubProvider);
   };
   // auth context all value
-  const authContextInfo = { registerUser, signInWithGoogle, signInWithGithub };
+  const authContextInfo = {
+    registerUser,
+    loginUser,
+    signInWithGoogle,
+    signInWithGithub,
+  };
   return (
     <>
       <AuthContext.Provider value={authContextInfo}>
