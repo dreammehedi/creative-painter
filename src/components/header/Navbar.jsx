@@ -6,7 +6,7 @@ import UserProfile from "./UserProfile";
 function Navbar() {
   return (
     <nav className="py-3 bg-orange-500 text-white">
-      <div className="container flex justify-between items-center overflow-hidden">
+      <div className="container flex justify-between items-center">
         {/* logo */}
         <Logo></Logo>
         {/* mobile menu */}
@@ -27,7 +27,9 @@ function Navbar() {
         </ul>
 
         {/* user profile */}
-        <UserProfile></UserProfile>
+        <div className="relative">
+          <UserProfile></UserProfile>
+        </div>
       </div>
     </nav>
   );

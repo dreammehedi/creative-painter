@@ -1,39 +1,34 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 
 const menuContent = [
   {
-    id: 1,
     name: "Home",
     path: "/",
   },
   {
-    id: 2,
-    name: "Contact",
-    path: "/contact",
+    name: "Art & Craft",
+    path: "/all-art-craft",
   },
   {
-    id: 3,
-    name: "FAQ",
-    path: "/faq",
+    name: "Add Craft",
+    path: "/add-craft",
   },
   {
-    id: 4,
-    name: "About",
-    path: "/about",
-  },
-  {
-    id: 5,
-    name: "Register",
-    path: "/register",
+    name: "My Art & Craft",
+    path: "/my-art-craft",
   },
 ];
 function MenuItem() {
+  // user data
+  const { userData } = useContext(AuthContext);
   return (
     <>
-      {menuContent.map((item) => {
-        const { id, name, path } = item;
+      {menuContent.map((item, ind) => {
+        const { name, path } = item;
         return (
-          <li key={id} className="font-semibold capitalize">
+          <li key={ind} className="font-semibold capitalize">
             <NavLink
               to={path}
               className={({ isActive }) => {
@@ -45,6 +40,29 @@ function MenuItem() {
           </li>
         );
       })}
+      {userData ? (
+        <li className="font-semibold capitalize">
+          <NavLink
+            to={"/login"}
+            className={({ isActive }) => {
+              return isActive ? "text-orange-900" : "";
+            }}
+          >
+            Login
+          </NavLink>
+        </li>
+      ) : (
+        <li className="font-semibold capitalize">
+          <NavLink
+            to={"/register"}
+            className={({ isActive }) => {
+              return isActive ? "text-orange-900" : "";
+            }}
+          >
+            Register
+          </NavLink>
+        </li>
+      )}
     </>
   );
 }
