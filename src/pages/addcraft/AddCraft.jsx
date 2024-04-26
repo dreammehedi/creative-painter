@@ -1,8 +1,4 @@
-import "@smastrom/react-rating/style.css";
-
 import CurrencyInput from "react-currency-input-field";
-
-import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from "react-router-dom";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 function AddCraft() {
