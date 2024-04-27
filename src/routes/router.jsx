@@ -11,6 +11,7 @@ import Faq from "../pages/faq/Faq";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import MyArtCraft from "../pages/myart&craft/MyArtCraft";
+import UpdateMyArtCraft from "../pages/myart&craft/UpdateMyArtCraft";
 import Register from "../pages/register/Register";
 import ProtectRoute from "../protect-route/ProtectRoute";
 const router = createBrowserRouter([
@@ -38,6 +39,17 @@ const router = createBrowserRouter([
             <MyArtCraft></MyArtCraft>
           </ProtectRoute>
         ),
+      },
+      {
+        path: "/my-art-craft/:id",
+        element: (
+          <ProtectRoute>
+            <UpdateMyArtCraft></UpdateMyArtCraft>
+          </ProtectRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/crafts/${params.id}`);
+        },
       },
       {
         path: "/all-art-craft",

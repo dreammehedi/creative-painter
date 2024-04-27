@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../auth/AuthProvider";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 function AddCraft() {
   // find path
   const { pathname } = useLocation();
   // handle add item
+  // user email get
+  const { userData } = useContext(AuthContext);
+
   const handleAddItem = (e) => {
     e.preventDefault();
     const currentField = e.target;
@@ -186,6 +191,7 @@ function AddCraft() {
 
           <div className="col-span-3 space-y-1 text-base font-medium">
             <input
+              value={userData?.email}
               required
               type="email"
               name="email"
@@ -196,6 +202,7 @@ function AddCraft() {
           </div>
           <div className="col-span-3 space-y-1 text-base font-medium">
             <input
+              value={userData?.displayName}
               required
               type="text"
               name="name"
