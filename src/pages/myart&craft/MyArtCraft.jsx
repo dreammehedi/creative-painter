@@ -80,6 +80,7 @@ function MyArtCraft() {
                 price,
                 stockStatus,
                 customization,
+                rating,
               } = artCraftData;
               return (
                 <div
@@ -106,6 +107,12 @@ function MyArtCraft() {
                         </span>
                       </p>
                     </div>
+                    <p className="text-orange-900 font-bold">
+                      Rating:{" "}
+                      <span className="text-white rounded-md p-1 px-2 bg-orange-900 cursor-pointer font-medium">
+                        {rating}
+                      </span>
+                    </p>
                     <p className="text-orange-900 font-bold">
                       Customization:{" "}
                       <span className="text-white rounded-md p-1 px-2 bg-orange-900 cursor-pointer font-medium">

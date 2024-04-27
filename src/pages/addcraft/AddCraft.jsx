@@ -24,6 +24,7 @@ function AddCraft() {
     const customization = currentField.customization.value;
     const email = currentField.email.value;
     const name = currentField.name.value;
+    const rating = currentField.rating.value;
 
     const newCraft = {
       itemName,
@@ -34,6 +35,7 @@ function AddCraft() {
       time,
       stockStatus,
       customization,
+      rating,
       email,
       name,
     };
@@ -66,7 +68,7 @@ function AddCraft() {
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
-      <div className="my-4 md:my-6 lg:my-8 w-full max-w-3xl mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
+      <div className="my-4 md:my-6 lg:my-8 w-full max-w-4xl mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
         <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">
           Add New Craft
         </h1>
@@ -118,7 +120,7 @@ function AddCraft() {
             />
           </div>
 
-          <div className="col-span-6  space-y-1 text-base font-medium grid grid-cols-3 gap-4 md:gap-6 items-center justify-between text-center">
+          <div className="col-span-6  space-y-1 text-base font-medium grid grid-cols-4 gap-4 md:gap-6 items-center justify-between text-center">
             {/* price */}
             <CurrencyInput
               required
@@ -150,12 +152,17 @@ function AddCraft() {
               <label htmlFor="madeToOrder">No</label>
             </div>
             {/* rating */}
-            {/* <div className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow flex justify-center items-center">
-            <Rating
-              emptySymbol={<FaRegStar className="text-xl"></FaRegStar>}
-              fullSymbol={<FaStar className="text-xl"></FaStar>}
-            />
-          </div> */}
+            <div className="space-y-1 flex flex-col items-start text-base font-medium">
+              <input
+                min={1}
+                max={5}
+                type="number"
+                name="rating"
+                id="rating"
+                placeholder="Enter Your Rating..."
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              />
+            </div>
           </div>
 
           <div className="col-span-6 space-y-1 text-base font-medium">
