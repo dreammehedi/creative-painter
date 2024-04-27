@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import About from "../pages/about/About";
 import AddCraft from "../pages/addcraft/AddCraft";
 import AllArtCraft from "../pages/art&craft/AllArtCraft";
+import AllArtCraftDetailes from "../pages/art&craft/AllArtCraftDetailes";
 import Contact from "../pages/contact/Contact";
 import CraftDetailes from "../pages/craft/CraftDetailes";
 import Error from "../pages/error/Error";
@@ -43,6 +44,17 @@ const router = createBrowserRouter([
         element: <AllArtCraft></AllArtCraft>,
         loader: () => {
           return fetch("http://localhost:5000/crafts");
+        },
+      },
+      {
+        path: "/art-craft-detailes/:id",
+        element: (
+          <ProtectRoute>
+            <AllArtCraftDetailes></AllArtCraftDetailes>
+          </ProtectRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/crafts/${params.id}`);
         },
       },
       {

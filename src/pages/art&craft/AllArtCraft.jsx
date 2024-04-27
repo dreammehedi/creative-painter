@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 function AllArtCraft() {
@@ -95,7 +95,9 @@ function AllArtCraft() {
                   jane.cooper@example.com
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                  <Button name="View Detailes" cls={"!text-white"}></Button>
+                  <Link to={`/art-craft-detailes/1`}>
+                    <Button name="View Detailes" cls={"!text-white"}></Button>
+                  </Link>
                 </td>
               </tr>
             </tbody>
