@@ -22,6 +22,12 @@ function AllArtCraft() {
                   scope="col"
                   className="px-6 py-3 text-left text-xs font-medium text-orange-500 uppercase tracking-wider"
                 >
+                  Id
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-orange-500 uppercase tracking-wider"
+                >
                   Image & Title
                 </th>
                 <th
@@ -56,8 +62,8 @@ function AllArtCraft() {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-orange-50 divide-y divide-orange-300">
-              {allArtCraftData.map((artCraftData) => {
+            <tbody className="ivide-y divide-orange-300">
+              {allArtCraftData.map((artCraftData, ind) => {
                 const {
                   _id,
                   itemImage,
@@ -69,7 +75,13 @@ function AllArtCraft() {
                   email,
                 } = artCraftData;
                 return (
-                  <tr key={_id}>
+                  <tr
+                    key={_id}
+                    className={`group ${
+                      ind % 2 === 0 ? "bg-orange-50" : "bg-orange-100/70"
+                    }`}
+                  >
+                    <td className="px-6 py-4 whitespace-nowrap">{ind + 1}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
@@ -96,7 +108,13 @@ function AllArtCraft() {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                      <span
+                        className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-900/50 text-white ${
+                          stockStatus === "In stock"
+                            ? "bg-green-500"
+                            : "bg-red-500"
+                        }`}
+                      >
                         {stockStatus}
                       </span>
                     </td>
@@ -111,7 +129,7 @@ function AllArtCraft() {
                       <Link to={`/art-craft-detailes/${_id}`}>
                         <Button
                           name="View Detailes"
-                          cls={"!text-white"}
+                          cls={"!text-white group-hover:!bg-orange-500"}
                         ></Button>
                       </Link>
                     </td>
