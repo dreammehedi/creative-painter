@@ -21,11 +21,19 @@ function MyArtCraft() {
     fetch("http://localhost:5000/crafts")
       .then((res) => res.json())
       .then((data) => {
-        // my art craft data find
-        const myArtCraftData = data.filter(
-          (item) => item.email === userData?.email
-        );
-        setMyArtCraftData(myArtCraftData);
+        if (userData.email) {
+          // my art craft data find
+          const myArtCraftData = data.filter(
+            (item) => item.email === userData?.email
+          );
+          setMyArtCraftData(myArtCraftData);
+        } else {
+          // my art craft data find
+          const myArtCraftData = data.filter((item) => {
+            return item.name === userData?.displayName;
+          });
+          setMyArtCraftData(myArtCraftData);
+        }
       });
   }, [userData]);
 
