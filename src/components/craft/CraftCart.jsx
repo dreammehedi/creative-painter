@@ -37,7 +37,7 @@ function CraftCart({ craft }) {
         ></Button>
       </div>
       <div className="mt-3">
-        <Link to={_id}>
+        <Link to={`/craft-detailes/${_id}`}>
           <Button
             name={"View Detailes"}
             cls={"hover:text-white group-hover:bg-orange-500"}

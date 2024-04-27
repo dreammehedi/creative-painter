@@ -4,6 +4,7 @@ import About from "../pages/about/About";
 import AddCraft from "../pages/addcraft/AddCraft";
 import AllArtCraft from "../pages/art&craft/AllArtCraft";
 import Contact from "../pages/contact/Contact";
+import CraftDetailes from "../pages/craft/CraftDetailes";
 import Error from "../pages/error/Error";
 import Faq from "../pages/faq/Faq";
 import Home from "../pages/home/Home";
@@ -48,6 +49,13 @@ const router = createBrowserRouter([
             <AddCraft></AddCraft>
           </ProtectRoute>
         ),
+      },
+      {
+        path: "/craft-detailes/:id",
+        element: <CraftDetailes></CraftDetailes>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/crafts/${params.id}`);
+        },
       },
       {
         path: "/faq",
