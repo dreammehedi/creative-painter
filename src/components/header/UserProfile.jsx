@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { IoMenu } from "react-icons/io5";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 import userIcon from "../../assets/userIcon.png";
 import { AuthContext } from "../../auth/AuthProvider";
 import Button from "../button/Button";
@@ -23,38 +24,40 @@ function UserProfile() {
     <>
       {userData ? (
         <div className="flex justify-between items-center gap-4 md:gap-6 ">
-          <div className="relative w-full h-auto group">
+          <div className="w-full h-auto">
             {/* user photo */}
             <img
-              className="group object-contain w-12 h-12 rounded-full cursor-pointer p-1 shadow ring ring-orange-700"
+              data-tooltip-id="userProfile"
+              className="object-contain w-12 h-12 rounded-full cursor-pointer p-1 shadow ring ring-orange-700"
               src={userData ? userData?.photoURL : userIcon}
               alt="userProfile"
             />
-
-            <div className="group-hover:top-0 group-hover:flex transition-all duration-300 ease-linear absolute -top-full hidden z-[99] right-[52px] flex-col space-y-2 bg-orange-900 rounded-md w-[200px] h-auto p-4">
-              {/* username */}
-              <h4 className="font-poppins text-sm capitalize font-semibold text-white">
-                {userData?.displayName}
-              </h4>
-              {/* logout button */}
-              <div
-                onClick={handleLogout}
-                className="flex justify-between items-center gap-2"
-              >
-                <img
-                  className="group object-cover w-[60px] h-[60px] rounded-full cursor-pointer "
-                  src={userData ? userData?.photoURL : userIcon}
-                  alt="userProfile"
-                />
-                <Button
-                  type={"button"}
-                  name={"Logout"}
-                  cls={
-                    "!text-base !bg-orange-500/50 hover:!text-white hover:!bg-orange-500"
-                  }
-                ></Button>
+            <Tooltip data-tooltip-place="left-start" id="userProfile">
+              <div className="flex flex-col space-y-2 bg-orange-900 rounded-md w-auto h-auto p-4">
+                {/* username */}
+                <h4 className="font-poppins text-sm capitalize font-semibold text-white">
+                  {userData?.displayName}
+                </h4>
+                {/* logout button */}
+                <div
+                  onClick={handleLogout}
+                  className="flex justify-between items-center gap-2"
+                >
+                  <img
+                    className="group object-cover w-[60px] h-[60px] rounded-full cursor-pointer "
+                    src={userData ? userData?.photoURL : userIcon}
+                    alt="userProfile"
+                  />
+                  <Button
+                    type={"button"}
+                    name={"Logout"}
+                    cls={
+                      "!text-base !bg-orange-500/50 hover:!text-white hover:!bg-orange-500"
+                    }
+                  ></Button>
+                </div>
               </div>
-            </div>
+            </Tooltip>
           </div>
 
           {/* hamburget menu */}
