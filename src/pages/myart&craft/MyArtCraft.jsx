@@ -6,6 +6,8 @@ import { AuthContext } from "../../auth/AuthProvider";
 import Button from "../../components/button/Button";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
+
+import errorImage from "../../assets/error-img.jpg";
 function MyArtCraft() {
   // find path
   const { pathname } = useLocation();
@@ -85,14 +87,14 @@ function MyArtCraft() {
               return (
                 <div
                   key={artCraftData._id}
-                  className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md"
+                  className="group hover:ring-1 hover:scale-[1.01] hover:ring-orange-500 transition-all duration-300 ease-linear relative w-full overflow-hidden rounded-md bg-white shadow-md"
                 >
                   <img
-                    className="h-60 rounded-t-lg object-cover"
-                    src={itemImage}
+                    className="group-hover:scale-[1.02] transition-all duration-300 ease-linear border-b p-2 border-orange-900/50 h-60 w-full rounded-t-lg object-contain"
+                    src={itemImage.startsWith("http") ? itemImage : errorImage}
                   />
 
-                  <span className="absolute top-0 left-0 w-40 translate-y-8 -translate-x-8 -rotate-45 bg-orange-900/50 text-center text-sm text-white">
+                  <span className="group-hover:rotate-0 group-hover:bg-orange-500 group-hover:translate-x-0 absolute top-0 left-0 w-40 translate-y-8 -translate-x-8 -rotate-45 bg-orange-900/50 text-center text-sm text-white transition-all duration-300 ease-linear">
                     {stockStatus}
                   </span>
                   <div className="mt-4 px-5 pb-5 space-y-4">
@@ -121,14 +123,20 @@ function MyArtCraft() {
                     </p>
                     <div className="flex justify-between items-center gap-3">
                       <Link to={`/my-art-craft/${_id}`}>
-                        <Button name="Update" cls={"!text-white"}></Button>
+                        <Button
+                          name="Update"
+                          cls={"!text-white group-hover:!bg-orange-500"}
+                        ></Button>
                       </Link>
                       <div
                         onClick={() => {
                           handleArtCraftDelete(_id);
                         }}
                       >
-                        <Button name="Delete" cls={"!text-white"}></Button>
+                        <Button
+                          name="Delete"
+                          cls={"!text-white  group-hover:!bg-red-500"}
+                        ></Button>
                       </div>
                     </div>
                   </div>
