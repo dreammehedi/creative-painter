@@ -167,8 +167,10 @@ function AddCraft() {
 
           <div className="col-span-6 space-y-1 text-base font-medium">
             <input
+              min={1}
+              max={10}
               required
-              type="date"
+              type="number"
               name="time"
               id="time"
               placeholder="Enter Processing Time..."
