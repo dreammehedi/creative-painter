@@ -6,7 +6,7 @@ import Loader from "../components/loader/Loader";
 function ProtectRoute({ children }) {
   // find user is existing
   const { userData, userLoader } = useContext(AuthContext);
-  console.log(userLoader);
+
   // page refresh redirect handler
   if (userLoader) {
     return <Loader></Loader>;
