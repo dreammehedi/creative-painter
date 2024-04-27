@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react";
+import Loader from "../../components/loader/Loader";
 import Button from "../button/Button";
 import SectionTitle from "../section/SectionTitle";
 import CraftCart from "./CraftCart";
-
 function Craft() {
+  // loading state
+  const [loading, setLoading] = useState(true);
   // craft data get
   const [craftData, setCraftData] = useState([]);
-
   //   craft data slice
   const [sliceData, setSliceData] = useState(6);
   useEffect(() => {
     fetch("http://localhost:5000/crafts")
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false);
         setCraftData(data);
       });
   }, []);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
+
   return (
     <section>
       <div className="container my-4 md:my-6 lg:my-8">
