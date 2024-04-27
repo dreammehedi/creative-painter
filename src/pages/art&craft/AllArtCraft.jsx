@@ -7,7 +7,6 @@ function AllArtCraft() {
 
   // all art & craft data get
   const allArtCraftData = useLoaderData();
-  console.log(allArtCraftData);
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
@@ -58,48 +57,67 @@ function AllArtCraft() {
               </tr>
             </thead>
             <tbody className="bg-orange-50 divide-y divide-orange-300">
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 h-10 w-10">
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src="https://i.pravatar.cc/150?img=1"
-                        alt=""
-                      />
-                    </div>
-                    <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">
-                        Jane Cooper
+              {allArtCraftData.map((artCraftData) => {
+                const {
+                  _id,
+                  itemImage,
+                  itemName,
+                  subCategoryName,
+                  shortDescription,
+                  price,
+                  stockStatus,
+                  email,
+                } = artCraftData;
+                return (
+                  <tr key={_id}>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex items-center">
+                        <div className="flex-shrink-0 h-10 w-10">
+                          <img
+                            className="h-10 w-10 rounded-full"
+                            src={itemImage}
+                            alt=""
+                          />
+                        </div>
+                        <div className="ml-4">
+                          <div className="text-sm font-medium text-gray-900">
+                            {subCategoryName}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            {itemName}
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-sm text-gray-500">
-                        jane.cooper@example.com
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm text-gray-900 text-wrap break-words">
+                        {shortDescription.slice(0, 30)}
+                        {"..."}
                       </div>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    Regional Paradigm Technician
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    Active
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  Admin
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  jane.cooper@example.com
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                  <Link to={`/art-craft-detailes/1`}>
-                    <Button name="View Detailes" cls={"!text-white"}></Button>
-                  </Link>
-                </td>
-              </tr>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        {stockStatus}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {"$"}
+                      {price}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {email}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                      <Link to={`/art-craft-detailes/${_id}`}>
+                        <Button
+                          name="View Detailes"
+                          cls={"!text-white"}
+                        ></Button>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
