@@ -75,6 +75,11 @@ function MyArtCraft() {
       }
     });
   };
+
+  // handle filter with customization
+  const handleCustomizationFilter = () => {
+    console.log("copyMyArtCraftData");
+  };
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
@@ -84,6 +89,30 @@ function MyArtCraft() {
         <div className="mt-4 md:mt-6 lg:mt-8">
           <SectionTitle title="My Art & Craft"></SectionTitle>
         </div>
+
+        {/* filter data by customization */}
+
+        <form
+          onChange={handleCustomizationFilter}
+          className="my-4 md:my-6 lg:my-8 max-w-sm mx-auto"
+        >
+          <label
+            htmlFor="countries"
+            className="block mb-2 text-base uppercase font-medium text-orange-500 "
+          >
+            Select Customization
+          </label>
+          <select
+            id="countries"
+            name="countries"
+            className="border  text-white text-base rounded-lg  block w-full p-2.5 bg-orange-900/50 border-orange-900 placeholder-gray-400  focus:ring-orange-500 outline-none focus:border-orange-500"
+          >
+            <option value="All">All</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </form>
+
         {myArtCraftData.length > 0 ? (
           <div className="my-4 md:my-6 lg:my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6 ">
             {myArtCraftData.map((artCraftData) => {
@@ -103,7 +132,7 @@ function MyArtCraft() {
                 >
                   <img
                     className="group-hover:scale-[1.02] transition-all duration-300 ease-linear border-b p-2 border-orange-900/50 h-60 w-full rounded-t-lg object-contain"
-                    src={itemImage.startsWith("http") ? itemImage : errorImage}
+                    src={itemImage?.startsWith("http") ? itemImage : errorImage}
                   />
 
                   <span className="group-hover:rotate-0 group-hover:bg-orange-500 group-hover:translate-x-0 absolute top-0 left-0 w-40 translate-y-8 -translate-x-8 -rotate-45 bg-orange-900/50 text-center text-sm text-white transition-all duration-300 ease-linear">
