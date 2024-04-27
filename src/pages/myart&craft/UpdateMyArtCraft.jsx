@@ -1,5 +1,6 @@
 import CurrencyInput from "react-currency-input-field";
 import { useLoaderData, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 import errorImage from "../../assets/error-img.jpg";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
@@ -12,6 +13,7 @@ function UpdateMyArtCraft() {
 
   const artCraftDataGet = useLoaderData();
   const {
+    _id,
     itemImage,
     itemName,
     subCategoryName,
@@ -23,6 +25,67 @@ function UpdateMyArtCraft() {
     rating,
   } = artCraftDataGet;
 
+  // handle my art & craft data update
+  const handleMyArtCraftUpdate = (e, id) => {
+    e.preventDefault();
+    const currentField = e.target;
+    const itemName = currentField.itemName.value;
+    const subCategoryName = currentField.subCategoryName.value;
+    const shortDescription = currentField.shortDescription.value;
+    const itemImage = currentField.itemImage.value;
+    const price = currentField.price.value;
+    const stockStatus = currentField.stockStatus.value;
+    const customization = currentField.customization.value;
+    const rating = currentField.rating.value;
+
+    const updatedArtCraftData = {
+      itemName,
+      subCategoryName,
+      shortDescription,
+      itemImage,
+      price,
+      time,
+      stockStatus,
+      customization,
+      rating,
+    };
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, update it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/crafts/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedArtCraftData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              Swal.fire({
+                title: "Updated!",
+                text: "Your data has been updated.",
+                icon: "success",
+              });
+            } else {
+              Swal.fire({
+                title: "Error",
+                text: "An error occurred!",
+                icon: "error",
+              });
+            }
+          });
+      }
+    });
+  };
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
@@ -38,7 +101,12 @@ function UpdateMyArtCraft() {
             src={itemImage.startsWith("http") ? itemImage : errorImage}
             alt=""
           />
-          <form className="ring-1 shadow-lg ring-orange-500 p-4 rounded-md col-span-2 grid grid-cols-6 justify-between gap-4 md:gap-6">
+          <form
+            onSubmit={(e) => {
+              handleMyArtCraftUpdate(e, _id);
+            }}
+            className="ring-1 shadow-lg ring-orange-500 p-4 rounded-md col-span-2 grid grid-cols-6 justify-between gap-4 md:gap-6"
+          >
             <div className="col-span-6 space-y-1 text-base font-medium">
               <label
                 htmlFor="itemImage"
