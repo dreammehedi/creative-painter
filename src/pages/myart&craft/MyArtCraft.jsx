@@ -55,6 +55,10 @@ function MyArtCraft() {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
+              const remainingArtCraftData = myArtCraftData.filter(
+                (data) => data._id !== itemId
+              );
+              setMyArtCraftData(remainingArtCraftData);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your data has been deleted.",
