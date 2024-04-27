@@ -40,28 +40,29 @@ function MenuItem() {
           </li>
         );
       })}
-      {userData ? (
-        <li className="font-semibold capitalize">
-          <NavLink
-            to={"/login"}
-            className={({ isActive }) => {
-              return isActive ? "text-orange-900" : "";
-            }}
-          >
-            Login
-          </NavLink>
-        </li>
-      ) : (
-        <li className="font-semibold capitalize">
-          <NavLink
-            to={"/register"}
-            className={({ isActive }) => {
-              return isActive ? "text-orange-900" : "";
-            }}
-          >
-            Register
-          </NavLink>
-        </li>
+      {!userData && (
+        <>
+          <li className="font-semibold capitalize">
+            <NavLink
+              to={"/register"}
+              className={({ isActive }) => {
+                return isActive ? "text-orange-900" : "";
+              }}
+            >
+              Register
+            </NavLink>
+          </li>
+          <li className="font-semibold capitalize">
+            <NavLink
+              to={"/login"}
+              className={({ isActive }) => {
+                return isActive ? "text-orange-900" : "";
+              }}
+            >
+              Login
+            </NavLink>
+          </li>
+        </>
       )}
     </>
   );
