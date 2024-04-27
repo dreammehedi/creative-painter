@@ -1,3 +1,7 @@
+import { FaRegFaceGrinStars } from "react-icons/fa6";
+import { GrStatusGood } from "react-icons/gr";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { RxUpdate } from "react-icons/rx";
 import { useLoaderData, useLocation } from "react-router-dom";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
@@ -5,7 +9,17 @@ import SlugBanner from "../../components/slug_banner/SlugBanner";
 function CraftDetailes() {
   const craftDetailesData = useLoaderData();
   console.log(craftDetailesData);
-  const { itemName, itemImage } = craftDetailesData;
+  const {
+    itemName,
+    itemImage,
+    time,
+    price,
+    rating,
+    stockStatus,
+    customization,
+    subCategoryName,
+    shortDescription,
+  } = craftDetailesData;
 
   // find path
   const { pathname } = useLocation();
@@ -18,92 +32,67 @@ function CraftDetailes() {
       <div className="container my-4 md:my-6 lg:my-8 ">
         <SectionTitle title="Craft Detailes"></SectionTitle>
 
-        <div className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-2 justify-between items-center gap-4 md:gap-6">
-          {/* craft image */}
-          <img src={itemImage} alt="" />
+        <div className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-3 justify-between items-center gap-4 md:gap-6">
+          <div className="col-span-2 shadow-md p-4 rounded-l">
+            {/* craft image */}
+            <img
+              className="w-full h-[450px] object-cover rounded-md mb-4"
+              src={itemImage}
+              alt=""
+            />
 
-          {/* craft information */}
-          <div className="flex flex-col space-y-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-500">
-              {itemName}
-            </h1>
-            <article className="">
-              <div className="">
-                <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center dark:text-gray-600">
-                  <div className="flex items-center md:space-x-2">
-                    <img
-                      src="https://source.unsplash.com/75x75/?portrait"
-                      alt=""
-                      className="w-4 h-4 border rounded-full dark:bg-gray-500 dark:border-gray-300"
-                    />
-                    <p className="text-sm">Leroy Jenkins • July 19th, 2021</p>
-                  </div>
-                  <p className="flex-shrink-0 mt-3 text-sm md:mt-0">
-                    4 min read • 1,570 views
+            {/* craft information */}
+            <div className="flex flex-col space-y-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-500">
+                {itemName}
+              </h1>
+              <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center dark:text-gray-600">
+                <div className="flex items-center md:space-x-2">
+                  <p className="text-base font-semibold text-orange-900 uppercase">
+                    {subCategoryName}
                   </p>
                 </div>
+                <p className="text-orange-500 font-medium">{time}</p>
               </div>
-              <div className="dark:text-gray-800">
-                <p>Insert the actual text content here...</p>
-              </div>
-            </article>
-            <div>
-              <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-                >
-                  #MambaUI
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-                >
-                  #TailwindCSS
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-                >
-                  #Angular
-                </a>
-              </div>
-              <div className="space-y-2">
-                <h4 className="text-lg font-semibold">Related posts</h4>
-                <ul className="ml-4 space-y-1 list-disc">
-                  <li>
-                    <a
-                      rel="noopener noreferrer"
-                      href="#"
-                      className="hover:underline"
-                    >
-                      Nunc id magna mollis
-                    </a>
-                  </li>
-                <li>
-                    <a
-                      rel="noopener noreferrer"
-                      href="#"
-                      className="hover:underline"
-                    >
-                      Duis molestie, neque eget pretium lobortis
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      rel="noopener noreferrer"
-                      href="#"
-                      className="hover:underline"
-                    >
-                      Mauris nec urna volutpat, aliquam lectus sit amet
-                    </a>
-                  </li>
-                </ul>
+
+              <p className="text-gray-400">{shortDescription}</p>
+
+              <div className="grid grid-cols-4 justify-between gap-4 md:gap-6">
+                <div className="space-y-3 p-4 shadow-md flex flex-col justify-center items-center text-center">
+                  <h2 className="text-2xl text-orange-900">Price</h2>
+                  <RiMoneyDollarCircleLine className="text-5xl text-orange-500"></RiMoneyDollarCircleLine>
+                  <span className="font-extrabold font-poppins text-2xl">
+                    ${price}
+                  </span>
+                </div>
+                <div className="space-y-3 p-4 shadow-md flex flex-col justify-center items-center text-center">
+                  <h2 className="text-2xl text-orange-900">Rating</h2>
+                  <FaRegFaceGrinStars className="text-5xl text-orange-500"></FaRegFaceGrinStars>
+                  <span className="font-extrabold font-poppins text-2xl">
+                    {rating}
+                  </span>
+                </div>
+                <div className="space-y-3 p-4 shadow-md flex flex-col justify-center items-center text-center">
+                  <h2 className="text-2xl text-orange-900">Status</h2>
+                  <GrStatusGood className="text-5xl text-orange-500"></GrStatusGood>
+                  <span className="font-extrabold font-poppins text-2xl">
+                    {stockStatus}
+                  </span>
+                </div>
+                <div className="space-y-3 p-4 shadow-md flex flex-col justify-center items-center text-center rounded-lg">
+                  <h2 className="text-2xl text-orange-900">Customization</h2>
+                  <RxUpdate className="text-5xl text-orange-500"></RxUpdate>
+                  <span className="font-extrabold font-poppins text-2xl">
+                    {customization}
+                  </span>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* more craft */}
+          <div>
+    
           </div>
         </div>
       </div>
