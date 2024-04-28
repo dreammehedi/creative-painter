@@ -3,12 +3,12 @@ function SliderItem({ bg, title, des, children }) {
   return (
     <div
       style={{
-        background: `linear-gradient(to right, rgb(255 165 0 / 49%), rgb(51 51 51 / 99%)), url(${bg})`,
+        background: `linear-gradient(to right, rgb(17 17 17 / 40%), rgb(86 71 4 / 30%)), url(${bg})`,
       }}
       className="w-full h-full !bg-no-repeat !bg-cover !bg-right-top flex flex-col items-center justify-center"
     >
-      <div className="container space-y-3 md:space-y-6 w-full md:max-w-2xl !mr-auto !ml-0">
-        <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold capitalize font-poppins">
+      <div className="container space-y-3 md:space-y-6 w-full md:max-w-3xl text-center">
+        <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold capitalize font-poppins leading-normal md:!leading-[60px]">
           {title}
         </h1>
         <p className="text-gray-300">{des}</p>

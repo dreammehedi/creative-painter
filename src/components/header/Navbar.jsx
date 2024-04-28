@@ -7,7 +7,7 @@ function Navbar() {
   // theme controler
 
   return (
-    <nav className="py-3 bg-orange-500 text-white">
+    <nav className=" py-3 flex items-center bg-transparent text-black h-[70px]">
       <div className="container flex justify-between items-center">
         {/* logo */}
         <Logo></Logo>

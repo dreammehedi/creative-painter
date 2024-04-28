@@ -7,9 +7,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import SliderItem from "../slider/SliderItem";
 
-import slider1 from "../../assets/slider/slider1.png";
-import slider2 from "../../assets/slider/slider2.png";
-import slider3 from "../../assets/slider/slider3.png";
+import slider1 from "../../assets/slider/slider1.jpg";
+import slider2 from "../../assets/slider/slider2.jpg";
+import slider3 from "../../assets/slider/slider3.jpg";
+import slider4 from "../../assets/slider/slider4.jpg";
 import Button from "../../components/button/Button";
 function Banner() {
   return (
@@ -24,79 +25,53 @@ function Banner() {
         <SwiperSlide>
           <SliderItem
             bg={slider1}
-            title="Unleash Your Creativity: Welcome to Palette Portrait & Pencil"
-            des="Indulge your passion for art on Palette Portrait & Pencil, your ultimate destination for painting and drawing enthusiasts. Whether you're a seasoned artist or just starting your creative journey, find inspiration, tutorials, and a vibrant community to support your artistic exploration. Join us and let your imagination soar!"
+            title="Nature's Palette: A Journey Through Landscape Paintings"
+            des="Experience the tranquil beauty of nature captured on canvas in our immersive landscape painting collection. Let these breathtaking vistas transport you to serene and picturesque destinations."
           >
             <Button
-              name="Start Creating"
-              cls={"!bg-orange-500 !text-white"}
+              name="Explore Now"
+              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
             ></Button>
           </SliderItem>
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem
             bg={slider2}
-            title="Unleash Your Creativity: Welcome to Palette Portrait & Pencil"
-            des="Indulge your passion for art on Palette Portrait & Pencil, your ultimate destination for painting and drawing enthusiasts. Whether you're a seasoned artist or just starting your creative journey, find inspiration, tutorials, and a vibrant community to support your artistic exploration. Join us and let your imagination soar!"
+            title="Watercolor Wonders: A Splash of Nature's Beauty"
+            des="Dive into the mesmerizing world of watercolor painting and witness nature come alive with vibrant hues and fluid strokes. Explore our collection of watercolor masterpieces that capture the essence of landscapes in every brushstroke."
           >
             <Button
-              name="Start Creating"
-              cls={"!bg-orange-500 !text-white"}
+              name="Discover Now"
+              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
             ></Button>
           </SliderItem>
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem
             bg={slider3}
-            title="Unleash Your Creativity: Welcome to Palette Portrait & Pencil"
-            des="Indulge your passion for art on Palette Portrait & Pencil, your ultimate destination for painting and drawing enthusiasts. Whether you're a seasoned artist or just starting your creative journey, find inspiration, tutorials, and a vibrant community to support your artistic exploration. Join us and let your imagination soar!"
+            title="Eternal Brushstrokes: Exploring the Majesty of Oil Landscapes"
+            des="Embark on a journey through the rich textures and vivid colors of oil paintings, where landscapes are immortalized on canvas with timeless beauty. Immerse yourself in our collection and discover the allure of oil-painted panoramas."
           >
             <Button
-              name="Start Creating"
-              cls={"!bg-orange-500 !text-white"}
+              name="View Collection"
+              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
+            ></Button>
+          </SliderItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <SliderItem
+            bg={slider4}
+            title="Charcoal Chronicles: Capturing Landscapes in Shadows and Light"
+            des="Uncover the raw and emotive power of charcoal sketching as landscapes unfold in dramatic contrasts of darkness and light. Experience the evocative allure of our charcoal sketches, where each stroke reveals the soul of nature."
+          >
+            <Button
+              name="Explore Sketches"
+              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
             ></Button>
           </SliderItem>
         </SwiperSlide>
       </Swiper>
     </>
-    // <section className="dark:bg-gray-100 dark:text-gray-800">
-    //   <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-    //     <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-    //       <h1 className="text-5xl font-bold leading-none sm:text-6xl">
-    //         Ac mattis
-    //         <span className="dark:text-violet-600">senectus</span>erat pharetra
-    //       </h1>
-    //       <p className="mt-6 mb-8 text-lg sm:mb-12">
-    //         Dictum aliquam porta in condimentum ac integer
-    //         <br className="hidden md:inline lg:hidden" />
-    //         turpis pulvinar, est scelerisque ligula sem
-    //       </p>
-    //       <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-    //         <a
-    //           rel="noopener noreferrer"
-    //           href="#"
-    //           className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
-    //         >
-    //           Suspendisse
-    //         </a>
-    //         <a
-    //           rel="noopener noreferrer"
-    //           href="#"
-    //           className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-800"
-    //         >
-    //           Malesuada
-    //         </a>
-    //       </div>
-    //     </div>
-    //     <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-    //       <img
-    //         src="assets/svg/Business_SVG.svg"
-    //         alt=""
-    //         className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
-    //       />
-    //     </div>
-    //   </div>
-    // </section>
   );
 }
 
