@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { IoClose } from "react-icons/io5";
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
 import UserProfile from "./UserProfile";
 
 function Navbar() {
   const [showTop, setShowTop] = useState(false);
-  console.log(showTop);
+  const [showMenu, setShowMenu] = useState(false);
   // handle show click to top button
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +20,11 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   });
+
+  // handle mobile menu
+  const handleMobileMenu = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <nav
       className={`${
@@ -32,14 +36,17 @@ function Navbar() {
         {/* logo */}
         <Logo></Logo>
         {/* mobile menu */}
-        <ul className="lg:hidden fixed top-[18px] right-[24px] w-[200px] z-[999] bg-orange-500 flex flex-col p-8 justify-center items-start rounded-md gap-4 md:gap-6  font-poppins">
+        <ul
+          className={`${
+            showMenu && "!left-0"
+          } lg:hidden fixed top-0 -left-full w-1/2 md:w-1/3 z-[99999] bg-orange-50 flex flex-col h-screen px-8 justify-center items-start rounded-tr-lg rounded-br-lg gap-4 md:gap-6 font-poppins transition-all duration-300 ease-linear`}
+        >
           {/* menu items */}
           <div className="space-y-6">
-            {/* hamburget menu */}
-            <div className="absolute top-0 right-0 text-right font-space-grotesk font-semibold bg-orange-900/50 rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-orange-900 hover:shadow-md hover:text-orange-500">
+            {/* <div className="absolute top-0 right-0 text-right font-space-grotesk font-semibold bg-orange-900/50 rounded-lg p-2 transition-all duration-300 ease-linear hover:bg-orange-900 hover:shadow-md hover:text-orange-500">
               <IoClose className="text-2xl"></IoClose>
-            </div>
-            <MenuItem></MenuItem>
+            </div> */}
+            <MenuItem handleMobileMenu={handleMobileMenu}></MenuItem>
           </div>
         </ul>
 
@@ -50,7 +57,10 @@ function Navbar() {
 
         {/* user profile */}
         <div className="relative">
-          <UserProfile></UserProfile>
+          <UserProfile
+            handleMobileMenu={handleMobileMenu}
+            showMenu={showMenu}
+          ></UserProfile>
         </div>
       </div>
     </nav>

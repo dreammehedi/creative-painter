@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider";
@@ -20,7 +21,7 @@ const menuContent = [
     path: "/my-art-craft",
   },
 ];
-function MenuItem() {
+function MenuItem({ handleMobileMenu }) {
   // user data
   const { userData } = useContext(AuthContext);
   return (
@@ -28,7 +29,13 @@ function MenuItem() {
       {menuContent.map((item, ind) => {
         const { name, path } = item;
         return (
-          <li key={ind} className="font-semibold capitalize">
+          <li
+            onClick={() => {
+              handleMobileMenu();
+            }}
+            key={ind}
+            className="font-semibold capitalize"
+          >
             <NavLink
               to={path}
               className={({ isActive }) => {
@@ -42,7 +49,12 @@ function MenuItem() {
       })}
       {!userData && (
         <>
-          <li className="font-semibold capitalize">
+          <li
+            onClick={() => {
+              handleMobileMenu();
+            }}
+            className="font-semibold capitalize"
+          >
             <NavLink
               to={"/register"}
               className={({ isActive }) => {
@@ -52,7 +64,12 @@ function MenuItem() {
               Register
             </NavLink>
           </li>
-          <li className="font-semibold capitalize">
+          <li
+            onClick={() => {
+              handleMobileMenu();
+            }}
+            className="font-semibold capitalize"
+          >
             <NavLink
               to={"/login"}
               className={({ isActive }) => {
@@ -67,5 +84,7 @@ function MenuItem() {
     </>
   );
 }
-
+MenuItem.propTypes = {
+  handleMobileMenu: PropTypes.func,
+};
 export default MenuItem;
