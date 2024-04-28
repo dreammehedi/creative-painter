@@ -68,15 +68,15 @@ function AddCraft() {
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
-      <div className="my-4 md:my-6 lg:my-8 w-full max-w-4xl mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
+      <div className="container  my-4 md:my-6 lg:my-8 rounded-lg">
         <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">
           Add New Craft
         </h1>
         <form
           onSubmit={handleAddItem}
-          className="grid grid-cols-6 justify-between gap-4 md:gap-6"
+          className="w-full lg:max-w-4xl lg:mx-auto ring-1 ring-orange-500/50 p-4 md:p-6 lg:p-8 my-4 md:my-6 lg:my-8  rounded-lg grid grid-cols-6 justify-between gap-4 md:gap-6"
         >
-          <div className="col-span-3 space-y-1 text-base font-medium">
+          <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
             <input
               required
               type="text"
@@ -87,7 +87,7 @@ function AddCraft() {
             />
           </div>
 
-          <div className="col-span-3 space-y-1 text-base font-medium">
+          <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
             <input
               required
               type="text"
@@ -124,7 +124,7 @@ function AddCraft() {
             {/* price */}
             <CurrencyInput
               required
-              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              className="col-span-6 lg:col-span-1  w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               id="price"
               name="price"
               placeholder="$ Price..."
@@ -132,7 +132,7 @@ function AddCraft() {
             ></CurrencyInput>
 
             {/* customization */}
-            <div className="col-span-2 space-y-1 text-base font-medium flex items-center gap-2 w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
+            <div className="col-span-6 lg:col-span-2  space-y-1 text-base font-medium flex items-center gap-2 w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
               <label>Customization:</label>
               <input
                 type="radio"
@@ -152,7 +152,7 @@ function AddCraft() {
               <label htmlFor="madeToOrder">No</label>
             </div>
             {/* rating */}
-            <div className="space-y-1 flex flex-col items-start text-base font-medium">
+            <div className="col-span-6 lg:col-span-1  space-y-1 flex flex-col items-start text-base font-medium">
               <input
                 min={1}
                 max={5}
@@ -198,7 +198,7 @@ function AddCraft() {
             <label htmlFor="madeToOrder">Made to Order</label>
           </div>
 
-          <div className="col-span-3 space-y-1 text-base font-medium">
+          <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
             <input
               value={userData?.email}
               required
@@ -209,7 +209,7 @@ function AddCraft() {
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
             />
           </div>
-          <div className="col-span-3 space-y-1 text-base font-medium">
+          <div className="col-span-6 lg:col-span-3  space-y-1 text-base font-medium">
             <input
               value={userData?.displayName}
               required
