@@ -13,9 +13,9 @@ function AllArtCraft() {
 
       {/* all art & craft */}
       <section className="my-4 md:my-6 lg:my-8">
-        <div className="container ring ring-orange-500 py-6 rounded-md">
+        <div className="container ring ring-orange-500 py-6 rounded-md overflow-x-auto">
           {/* art & craft table */}
-          <table className="min-w-full divide-y divide-orange-900  overflow-x-auto">
+          <table className="w-full divide-y divide-orange-900  ">
             <thead className="bg-gray-50 font-poppins ">
               <tr>
                 <th
