@@ -25,7 +25,7 @@ function ArtCraftCategory() {
         <SectionTitle title="Art Craft Category"></SectionTitle>
 
         {/* service items */}
-        <div className="my-4 md:my-6 lg:my-8 grid grid-cols-3 justify-between gap-4 md:gap-6">
+        <div className="my-4 md:my-6 lg:my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6">
           {artCraftCategory.slice(0, `${sliceData}`).map((artCraftData) => {
             return (
               <ArtCraftCategoryCart
