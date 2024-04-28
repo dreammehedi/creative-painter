@@ -34,7 +34,7 @@ function Login() {
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
-      <div className="my-4 md:my-6 lg:my-8 w-full max-w-md mx-auto p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 ring ring-orange-500">
+      <div className="my-4 md:my-6 lg:my-8 w-full max-w-md mx-auto p-4  md:p-8 space-y-3 rounded-lg bg-gray-50 text-gray-800 ring ring-orange-500">
         <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">
           Login
         </h1>
