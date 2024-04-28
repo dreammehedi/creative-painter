@@ -11,7 +11,7 @@ function SliderItem({ bg, title, des, children }) {
         <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold capitalize font-poppins leading-normal md:!leading-[60px]">
           {title}
         </h1>
-        <p className="text-gray-300">{des}</p>
+        <p className="text-slate-300">{des}</p>
         {children}
       </div>
     </div>

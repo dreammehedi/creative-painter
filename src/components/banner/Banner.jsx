@@ -1,11 +1,11 @@
 // Import Swiper React components
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import SliderItem from "../slider/SliderItem";
+import "./myCss.css";
 
 import slider1 from "../../assets/slider/slider1.jpg";
 import slider2 from "../../assets/slider/slider2.jpg";
@@ -16,11 +16,14 @@ function Banner() {
   return (
     <>
       <Swiper
-        modules={[Navigation, Pagination]}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay, Navigation]}
         navigation
-        pagination={{ clickable: true }}
         spaceBetween={50}
-        className="md:h-[400px] lg:h-[100vh] w-full "
+        className="h-[450px] md:h-[500px] lg:h-[100vh] w-full "
       >
         <SwiperSlide>
           <SliderItem
