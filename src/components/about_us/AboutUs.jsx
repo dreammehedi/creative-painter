@@ -13,6 +13,7 @@ function AboutUs() {
             <img
               className="w-full rounded-md h-[400px] md:max-w-3xl md:mx-auto object-cover"
               src={aboutImage}
+              
               alt="About Image"
             />
             <p className="md:max-w-4xl text-slate-600 font-medium">
