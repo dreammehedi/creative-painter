@@ -15,7 +15,7 @@ function AllArtCraftCategory() {
         <SectionTitle title={`All SubCategory Data`}></SectionTitle>
       </div>
       <section className="my-4 md:my-6 lg:my-8">
-        <div className="container grid grid-cols-3 justify-between gap-4 md:gap-6">
+        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6">
           {artCraftCategoryData.map((artCraftCategoryItem) => {
             return (
               <AllArtCraftCategoryCart
