@@ -39,7 +39,7 @@ function MenuItem({ handleMobileMenu }) {
             <NavLink
               to={path}
               className={({ isActive }) => {
-                return isActive ? "text-orange-900" : "";
+                return isActive ? "text-orange-500" : "";
               }}
             >
               {name}
@@ -58,7 +58,7 @@ function MenuItem({ handleMobileMenu }) {
             <NavLink
               to={"/register"}
               className={({ isActive }) => {
-                return isActive ? "text-orange-900" : "";
+                return isActive ? "text-orange-500" : "";
               }}
             >
               Register
@@ -73,7 +73,7 @@ function MenuItem({ handleMobileMenu }) {
             <NavLink
               to={"/login"}
               className={({ isActive }) => {
-                return isActive ? "text-orange-900" : "";
+                return isActive ? "text-orange-500" : "";
               }}
             >
               Login

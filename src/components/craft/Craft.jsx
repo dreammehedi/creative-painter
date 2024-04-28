@@ -25,30 +25,27 @@ function Craft() {
 
   return (
     <section>
-      <div className="container my-4 md:my-6 lg:my-8">
-        {/* craft title */}
-        <SectionTitle title="Our Crafts Items"></SectionTitle>
-        <div className=" my-4 md:my-6 lg:my-8 grid grid-cols-3 justify-between gap-6 md:gap-8">
-          {craftData.slice(0, `${sliceData}`).map((craft, ind) => {
-            return <CraftCart key={ind} craft={craft}></CraftCart>;
-          })}
-
-          {/* view all crafts */}
-          {craftData.length > sliceData && (
-            <div
-              onClick={() => {
-                setSliceData(sliceData + 3);
-              }}
-              className="col-span-3 flex justify-center items-center"
-            >
-              <Button
-                name={"All Craft"}
-                cls={"!bg-orange-500 !text-white hover:!bg-orange-900 !px-6"}
-              ></Button>
-            </div>
-          )}
-        </div>
+      {/* craft title */}
+      <SectionTitle title="Our Art Craft Items"></SectionTitle>
+      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6 ">
+        {craftData.slice(0, `${sliceData}`).map((craft, ind) => {
+          return <CraftCart key={ind} craft={craft}></CraftCart>;
+        })}
       </div>
+      {/* view all crafts */}
+      {craftData.length > sliceData && (
+        <div
+          onClick={() => {
+            setSliceData(sliceData + 3);
+          }}
+          className="mt-4 md:mt-6 lg:mt-8 col-span-3 flex justify-center items-center"
+        >
+          <Button
+            name={"All Craft"}
+            cls={"!bg-orange-500 !text-white hover:!bg-orange-900 !px-6"}
+          ></Button>
+        </div>
+      )}
     </section>
   );
 }
