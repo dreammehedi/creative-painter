@@ -182,7 +182,7 @@ function MyArtCraft() {
             })}
           </div>
         ) : (
-          <div className="grid grid-cols-1  md:grid-cols-2 justify-center gap-6 items-center text-center my-4 md:my-6 lg:my-8">
+          <div className="grid grid-cols-1  md:grid-cols-2 justify-center gap-6 items-center text-center my-6 md:my-8 lg:my-12">
             <div className="flex flex-col space-y-3">
               <h1 className="font-poppins font-bold text-2xl md:text-3xl lg:text-4xl text-orange-500">
                 No Data Found!
