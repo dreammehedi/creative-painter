@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import Button from "../button/Button";
 import SectionTitle from "../section/SectionTitle";
 import ArtCraftCategoryCart from "./ArtCraftCategoryCart";
 
 function ArtCraftCategory() {
   // art craft category data get in database new collection
   const [artCraftCategory, setArtCraftCategory] = useState([]);
+
+  //   craft data slice
+  const [sliceData, setSliceData] = useState(6);
 
   useEffect(() => {
     fetch("http://localhost:5000/art-craft-category")
@@ -22,7 +26,7 @@ function ArtCraftCategory() {
 
         {/* service items */}
         <div className="my-4 md:my-6 lg:my-8 grid grid-cols-3 justify-between gap-4 md:gap-6">
-          {artCraftCategory.slice(0, 6).map((artCraftData) => {
+          {artCraftCategory.slice(0, `${sliceData}`).map((artCraftData) => {
             return (
               <ArtCraftCategoryCart
                 key={artCraftData._id}
@@ -31,6 +35,21 @@ function ArtCraftCategory() {
             );
           })}
         </div>
+
+        {/* view all art craft sub category */}
+        {artCraftCategory.length > sliceData && (
+          <div
+            onClick={() => {
+              setSliceData(sliceData + 3);
+            }}
+            className="col-span-3 flex justify-center items-center"
+          >
+            <Button
+              name={"All Art Craft Category"}
+              cls={"!bg-orange-500 !text-white hover:!bg-orange-900 !px-6"}
+            ></Button>
+          </div>
+        )}
       </div>
     </section>
   );
