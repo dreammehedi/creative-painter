@@ -1,6 +1,8 @@
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
+import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
+
 function AllArtCraft() {
   // find path
   const { pathname } = useLocation();
@@ -11,6 +13,7 @@ function AllArtCraft() {
     <>
       <SlugBanner path={pathname}></SlugBanner>
 
+      <SectionTitle title="All Art Craft Data"></SectionTitle>
       {/* all art & craft */}
       <section className="my-4 md:my-6 lg:my-8">
         <div className="container ring ring-orange-500 py-6 rounded-md overflow-x-auto">
