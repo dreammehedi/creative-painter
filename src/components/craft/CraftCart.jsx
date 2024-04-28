@@ -14,7 +14,7 @@ function CraftCart({ craft }) {
   } = craft;
   return (
     <div className="space-y-3 cursor-pointer p-4 md:p-6 hover:shadow rounded-lg hover:shadow-orange-500/50 group transition-all duration-300 ease-linear ring-1 ring-orange-500/50">
-      <h1 className="font-semibold text-3xl md:text-4xl text-orange-900 capitalize leading-normal md:!leading-[50px]">
+      <h1 className="font-semibold text-3xl  text-orange-900 capitalize leading-normal md:!leading-[50px]">
         {itemName}
       </h1>
       <h1 className="font-semibold text-xl text-orange-500 capitalize ">
@@ -29,11 +29,15 @@ function CraftCart({ craft }) {
       <div className="flex items-center gap-4">
         <Button
           name={price}
-          cls={"!bg-orange-900 !rounded-full !px-6 !py-2 !text-white "}
+          cls={
+            "!bg-orange-900 !rounded-full !px-6 !py-2 !text-white !text-base"
+          }
         ></Button>
         <Button
           name={stockStatus}
-          cls={"!bg-orange-900 !rounded-full !px-6 !py-2 !text-white "}
+          cls={
+            "!bg-orange-900 !rounded-full !px-6 !py-2 !text-white !text-base"
+          }
         ></Button>
       </div>
       <div className="mt-3">
