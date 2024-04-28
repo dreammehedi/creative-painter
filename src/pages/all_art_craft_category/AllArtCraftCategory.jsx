@@ -5,8 +5,6 @@ import AllArtCraftCategoryCart from "./AllArtCraftCategoryCart";
 function AllArtCraftCategory() {
   // find path
   const { pathname } = useLocation();
-  const pathnameSplit = pathname.split("/");
-  const currentSubcategory = pathnameSplit[pathnameSplit.length - 1];
 
   // art craft category data
   const artCraftCategoryData = useLoaderData();
@@ -14,7 +12,7 @@ function AllArtCraftCategory() {
     <>
       <SlugBanner path={pathname}></SlugBanner>
       <div className="my-4 md:my-6 lg:my-8">
-        <SectionTitle title={`All ${currentSubcategory} Data`}></SectionTitle>
+        <SectionTitle title={`All SubCategory Data`}></SectionTitle>
       </div>
       <section className="my-4 md:my-6 lg:my-8">
         <div className="container grid grid-cols-3 justify-between gap-4 md:gap-6">

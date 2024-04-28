@@ -11,8 +11,10 @@ function AllArtCraftCategoryCartDetailes() {
   const {
     image,
     item_name,
-    category,
-    subcategory,
+    main_category,
+    subcategory_name,
+    rating,
+    price,
     short_description,
     key_elements,
     processing_time,
@@ -56,7 +58,7 @@ function AllArtCraftCategoryCartDetailes() {
                   Category:
                 </h2>
                 <h2 className="col-span-3 text-orange-900 font-medium text-left text-base">
-                  {category}
+                  {main_category}
                 </h2>
               </div>
               <div className="grid grid-cols-4 w-full  items-center">
@@ -64,7 +66,7 @@ function AllArtCraftCategoryCartDetailes() {
                   SubCategory:
                 </h2>
                 <h2 className="col-span-3 text-orange-900 font-medium text-left text-base">
-                  {subcategory}
+                  {subcategory_name}
                 </h2>
               </div>
               <div className="grid grid-cols-4 w-full items-center">
@@ -73,6 +75,22 @@ function AllArtCraftCategoryCartDetailes() {
                 </h2>
                 <h2 className="col-span-3 text-orange-900 font-medium text-left text-base">
                   {processing_time}
+                </h2>
+              </div>
+              <div className="grid grid-cols-4 w-full items-center">
+                <h2 className="text-orange-500 font-semibold text-2xl">
+                  Price:
+                </h2>
+                <h2 className="col-span-3 text-orange-900 font-medium text-left text-base">
+                  {price}
+                </h2>
+              </div>
+              <div className="grid grid-cols-4 w-full items-center">
+                <h2 className="text-orange-500 font-semibold text-2xl">
+                  Rating:
+                </h2>
+                <h2 className="col-span-3 text-orange-900 font-medium text-left text-base">
+                  {rating}
                 </h2>
               </div>
               <div className="grid grid-cols-4 w-full">
