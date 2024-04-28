@@ -27,8 +27,8 @@ function Craft() {
     <section>
       <div className="container my-4 md:my-6 lg:my-8">
         {/* craft title */}
-        <SectionTitle title="Our Crafts"></SectionTitle>
-        <div className=" my-4 md:my-6 lg:my-8 grid grid-cols-2 justify-between gap-6 md:gap-8">
+        <SectionTitle title="Our Crafts Items"></SectionTitle>
+        <div className=" my-4 md:my-6 lg:my-8 grid grid-cols-3 justify-between gap-6 md:gap-8">
           {craftData.slice(0, `${sliceData}`).map((craft, ind) => {
             return <CraftCart key={ind} craft={craft}></CraftCart>;
           })}
@@ -39,7 +39,7 @@ function Craft() {
               onClick={() => {
                 setSliceData(sliceData + 3);
               }}
-              className="col-span-2 flex justify-center items-center"
+              className="col-span-3 flex justify-center items-center"
             >
               <Button
                 name={"All Craft"}

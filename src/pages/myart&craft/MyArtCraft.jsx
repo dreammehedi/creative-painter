@@ -11,7 +11,6 @@ import errorImage from "../../assets/error-img.jpg";
 function MyArtCraft() {
   // find path
   const { pathname } = useLocation();
-
   // find user email
   const { userData } = useContext(AuthContext);
 

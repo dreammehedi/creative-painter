@@ -1,6 +1,6 @@
+import ArtCraftCategory from "../../components/art_craft_category/ArtCraftCategory";
 import Banner from "../../components/banner/Banner";
 import Craft from "../../components/craft/Craft";
-import Service from "../../components/service/Service";
 
 function Home() {
   return (
@@ -8,7 +8,8 @@ function Home() {
       <section>
         <Banner></Banner>
         <Craft></Craft>
-        <Service></Service>
+        {/* <Service></Service> */}
+        <ArtCraftCategory></ArtCraftCategory>
       </section>
     </>
   );
