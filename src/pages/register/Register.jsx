@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 import SocialLogin from "../../components/social_login/SocialLogin";
 
 function Register() {
+  // after login navigate
+  const navigate = useNavigate();
   // find path
   const { pathname } = useLocation();
 
@@ -61,6 +63,7 @@ function Register() {
       .then(() => {
         toast.success("Register Complete.");
         currentField.reset();
+        navigate("/");
       })
       .catch(() => {
         toast.error("An error occurred!");

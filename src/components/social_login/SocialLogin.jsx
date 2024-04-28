@@ -1,8 +1,11 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 
 function SocialLogin() {
+  // after login navigate
+  const navigate = useNavigate();
   // auth context data
   const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
@@ -11,6 +14,7 @@ function SocialLogin() {
     signInWithGoogle()
       .then(() => {
         toast.success("Successfully logged in.");
+        navigate("/");
       })
       .catch(() => {
         toast.error("An error occurred!");
@@ -22,6 +26,7 @@ function SocialLogin() {
     signInWithGithub()
       .then(() => {
         toast.success("Successfully logged in.");
+        navigate("/");
       })
       .catch(() => {
         toast.error("An error occurred!");
