@@ -4,6 +4,8 @@ import MenuItem from "./MenuItem";
 import UserProfile from "./UserProfile";
 
 function Navbar() {
+  // theme controler
+
   return (
     <nav className="py-3 bg-orange-500 text-white">
       <div className="container flex justify-between items-center">
