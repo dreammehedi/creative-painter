@@ -77,8 +77,9 @@ function MyArtCraft() {
   };
 
   // handle filter with customization
-  const handleCustomizationFilter = () => {
-    console.log("copyMyArtCraftData");
+  const handleCustomizationFilter = (event) => {
+    const selectedFilter = event.target.value;
+    console.log(selectedFilter);
   };
   return (
     <>
@@ -92,10 +93,7 @@ function MyArtCraft() {
 
         {/* filter data by customization */}
 
-        <form
-          onChange={handleCustomizationFilter}
-          className="my-4 md:my-6 lg:my-8 max-w-sm mx-auto"
-        >
+        <div className="my-4 md:my-6 lg:my-8 max-w-sm mx-auto">
           <label
             htmlFor="countries"
             className="block mb-2 text-base uppercase font-medium text-orange-500 "
@@ -103,15 +101,14 @@ function MyArtCraft() {
             Select Customization
           </label>
           <select
-            id="countries"
-            name="countries"
+            onChange={handleCustomizationFilter}
             className="border  text-white text-base rounded-lg  block w-full p-2.5 bg-orange-900/50 border-orange-900 placeholder-gray-400  focus:ring-orange-500 outline-none focus:border-orange-500"
           >
             <option value="All">All</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select>
-        </form>
+        </div>
 
         {myArtCraftData.length > 0 ? (
           <div className="my-4 md:my-6 lg:my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6 ">
