@@ -20,7 +20,7 @@ function Banner() {
         navigation
         pagination={{ clickable: true }}
         spaceBetween={50}
-        className="md:h-[400px] lg:h-[535px] w-full "
+        className="md:h-[400px] lg:h-[100vh] w-full "
       >
         <SwiperSlide>
           <SliderItem

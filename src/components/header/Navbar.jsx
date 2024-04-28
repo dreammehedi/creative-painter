@@ -1,13 +1,33 @@
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
 import UserProfile from "./UserProfile";
 
 function Navbar() {
-  // theme controler
-
+  const [showTop, setShowTop] = useState(false);
+  console.log(showTop);
+  // handle show click to top button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowTop(true);
+      } else {
+        setShowTop(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
   return (
-    <nav className=" py-3 flex items-center bg-transparent text-black h-[70px]">
+    <nav
+      className={`${
+        showTop &&
+        "fixed top-0 left-0 z-[99999] shadow-lg border-b border-orange-500/50"
+      } transition-all duration-300 ease-linear w-full bg-white text-black  py-3 flex items-center  h-[70px]`}
+    >
       <div className="container flex justify-between items-center">
         {/* logo */}
         <Logo></Logo>
