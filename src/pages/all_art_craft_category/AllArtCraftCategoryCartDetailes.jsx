@@ -45,7 +45,7 @@ function AllArtCraftCategoryCartDetailes() {
               </h1>
               <p className=" text-gray-400">{short_description}</p>
               <div className="w-full h-px border-b border-orange-500/50"></div>
-              <div className="grid grid-cols-4 w-full  items-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full  items-center">
                 <h2 className="text-orange-500 font-semibold text-xl md:text-2xl">
                   Title:
                 </h2>
@@ -53,15 +53,15 @@ function AllArtCraftCategoryCartDetailes() {
                   {item_name}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full  items-center">
-                <h2 className="text-orange-500 font-semibold text-2xl">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full  items-center">
+                <h2 className="text-orange-500 font-semibold text-xl md:text-2xl">
                   Category:
                 </h2>
                 <h2 className="col-span-3 text-orange-900 font-medium text-left text-base">
                   {main_category}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full  items-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full  items-center">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   SubCategory:
                 </h2>
@@ -69,7 +69,7 @@ function AllArtCraftCategoryCartDetailes() {
                   {subcategory_name}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full items-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full items-center">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   Processing Time:
                 </h2>
@@ -77,7 +77,7 @@ function AllArtCraftCategoryCartDetailes() {
                   {processing_time}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full items-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full items-center">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   Price:
                 </h2>
@@ -85,7 +85,7 @@ function AllArtCraftCategoryCartDetailes() {
                   {price}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full items-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full items-center">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   Rating:
                 </h2>
@@ -93,16 +93,16 @@ function AllArtCraftCategoryCartDetailes() {
                   {rating}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   Key Element:
                 </h2>
-                <div className="col-span-3 flex flex-wrap justify-start gap-4 ">
+                <div className="md:col-span-3 mt-2 md:mt-0 flex flex-wrap justify-start gap-4 ">
                   {key_elements.map((keyItem, ind) => {
                     return (
                       <div
                         key={ind}
-                        className="group ring-1 ring-orange-500/50 p-3 shadow-md flex flex-col justify-center items-center text-center rounded-md"
+                        className="group ring-1 ring-orange-500/50 p-2 md:p-3 shadow-md flex flex-col justify-center items-center text-center rounded-md"
                       >
                         <h2 className="transition-all duration-300 ease-linear group-hover:text-orange-500 uppercase text-sm text-orange-900">
                           {keyItem}
@@ -112,7 +112,7 @@ function AllArtCraftCategoryCartDetailes() {
                   })}
                 </div>
               </div>
-              <div className="grid grid-cols-4 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   Origin:
                 </h2>
@@ -120,7 +120,7 @@ function AllArtCraftCategoryCartDetailes() {
                   {origin}
                 </h2>
               </div>
-              <div className="grid grid-cols-4 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-4 w-full">
                 <h2 className="text-orange-500 font-semibold text-2xl">
                   Description:
                 </h2>
