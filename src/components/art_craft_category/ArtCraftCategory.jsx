@@ -7,7 +7,7 @@ function ArtCraftCategory() {
   const [artCraftCategory, setArtCraftCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/art-craft/category")
+    fetch("http://localhost:5000/art-craft-category")
       .then((res) => res.json())
       .then((data) => {
         setArtCraftCategory(data);

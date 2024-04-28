@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import About from "../pages/about/About";
 import AddCraft from "../pages/addcraft/AddCraft";
+import AllArtCraftCategory from "../pages/all_art_craft_category/AllArtCraftCategory";
 import AllArtCraft from "../pages/art&craft/AllArtCraft";
 import AllArtCraftDetailes from "../pages/art&craft/AllArtCraftDetailes";
 import Contact from "../pages/contact/Contact";
@@ -82,6 +83,15 @@ const router = createBrowserRouter([
         element: <CraftDetailes></CraftDetailes>,
         loader: ({ params }) => {
           return fetch(`http://localhost:5000/crafts/${params.id}`);
+        },
+      },
+      {
+        path: "/all-art-craft-category/:subcategory",
+        element: <AllArtCraftCategory></AllArtCraftCategory>,
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/art-craft-category/${params.subcategory}`
+          );
         },
       },
       {
