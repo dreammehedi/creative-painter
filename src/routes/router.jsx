@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import About from "../pages/about/About";
 import AddCraft from "../pages/addcraft/AddCraft";
 import AllArtCraftCategory from "../pages/all_art_craft_category/AllArtCraftCategory";
+import AllArtCraftCategoryCartDetailes from "../pages/all_art_craft_category/AllArtCraftCategoryCartDetailes";
 import AllArtCraft from "../pages/art&craft/AllArtCraft";
 import AllArtCraftDetailes from "../pages/art&craft/AllArtCraftDetailes";
 import Contact from "../pages/contact/Contact";
@@ -91,6 +92,17 @@ const router = createBrowserRouter([
         loader: ({ params }) => {
           return fetch(
             `http://localhost:5000/art-craft-category/${params.subcategory}`
+          );
+        },
+      },
+      {
+        path: "/art-craft-subcategory-detailes/:id",
+        element: (
+          <AllArtCraftCategoryCartDetailes></AllArtCraftCategoryCartDetailes>
+        ),
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/art-craft-subcategory-detailes/${params.id}`
           );
         },
       },

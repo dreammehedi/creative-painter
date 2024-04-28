@@ -4,8 +4,9 @@ import errorImage from "../../assets/error-img.jpg";
 import Button from "../../components/button/Button";
 
 function AllArtCraftCategoryCart({ artCraftCategoryItem }) {
-  const { image, subcategory, category, short_description } =
+  const { _id, image, subcategory, category, short_description } =
     artCraftCategoryItem;
+
   return (
     <>
       <div className="shadow-lg  hover:ring-1 hover:ring-orange-500/50 flex justify-center items-center space-y-3 flex-col text-center p-6 rounded-md hover:shadow-md group cursor-pointer transition-all duration-300 ease-linear">
@@ -22,7 +23,7 @@ function AllArtCraftCategoryCart({ artCraftCategoryItem }) {
             {category}
           </h1>
           <p className="text-gray-400">{short_description.slice(0, 100)}...</p>
-          <Link>
+          <Link to={`/art-craft-subcategory-detailes/${_id}`}>
             <Button name={"View Detailes"} cls={"hover:!text-white"}></Button>
           </Link>
         </div>
