@@ -8,7 +8,7 @@ function ArtCraftCategoryCart({ artCraftData }) {
     <Link to={`/all-art-craft-category/${main_category}`}>
       <div className="shadow-lg  hover:ring-1 hover:ring-orange-500/50 flex justify-center items-center space-y-3 flex-col text-center p-6 rounded-md hover:shadow-md group cursor-pointer  transition-all duration-300 ease-linear">
         <img
-          className="w-full h-[300px]"
+          className="w-full h-auto md:h-[300px] object-cover"
           src={image.startsWith("http") ? image : errorImage}
           alt=""
         />
