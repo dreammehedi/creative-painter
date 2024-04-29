@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
+import RegLogMenu from "./RegLogMenu";
 import UserProfile from "./UserProfile";
 
 function Navbar() {
@@ -56,7 +57,9 @@ function Navbar() {
         </ul>
 
         {/* user profile */}
-        <div className="relative">
+        <div className="relative flex items-center gap-4 md:gap-6">
+          {/* registation & login menu */}
+          <RegLogMenu></RegLogMenu>
           <UserProfile
             handleMobileMenu={handleMobileMenu}
             showMenu={showMenu}

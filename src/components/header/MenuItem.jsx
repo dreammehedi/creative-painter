@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../auth/AuthProvider";
 
 const menuContent = [
   {
@@ -22,8 +20,6 @@ const menuContent = [
   },
 ];
 function MenuItem({ handleMobileMenu }) {
-  // user data
-  const { userData } = useContext(AuthContext);
   return (
     <>
       {menuContent.map((item, ind) => {
@@ -47,40 +43,6 @@ function MenuItem({ handleMobileMenu }) {
           </li>
         );
       })}
-      {!userData && (
-        <>
-          <li
-            onClick={() => {
-              handleMobileMenu();
-            }}
-            className="font-semibold capitalize"
-          >
-            <NavLink
-              to={"/register"}
-              className={({ isActive }) => {
-                return isActive ? "text-orange-500" : "";
-              }}
-            >
-              Register
-            </NavLink>
-          </li>
-          <li
-            onClick={() => {
-              handleMobileMenu();
-            }}
-            className="font-semibold capitalize"
-          >
-            <NavLink
-              to={"/login"}
-              className={({ isActive }) => {
-                return isActive ? "text-orange-500" : "";
-              }}
-            >
-              Login
-            </NavLink>
-          </li>
-        </>
-      )}
     </>
   );
 }
