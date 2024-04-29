@@ -17,7 +17,7 @@ function Register() {
   const [cShowPass, setCShowPass] = useState(false);
 
   // auth context data
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser, updateUserProfile } = useContext(AuthContext);
 
   // password stronge check
   const strongPass = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -32,6 +32,8 @@ function Register() {
     const photoURL = currentField.photoURL.value;
     const password = currentField.password.value;
     const confirmPassword = currentField.confirmPassword.value;
+
+    const userName = firstName + " " + lastName;
 
     if (
       !firstName ||
@@ -59,15 +61,21 @@ function Register() {
       );
       return;
     }
-    registerUser(email, password)
-      .then(() => {
-        toast.success("Register Complete.");
-        currentField.reset();
-        navigate("/");
-      })
-      .catch(() => {
-        toast.error("An error occurred!");
-      });
+    registerUser(email, password).then(() => {
+      updateUserProfile(userName, photoURL)
+        .then(() => {
+          toast.success("Register Complete.");
+          currentField.reset();
+          navigate("/");
+        })
+        .catch((err) => {
+          if (err.message === "Firebase: Error (auth/email-already-in-use).") {
+            toast.error("Email already in use!");
+          } else {
+            toast.error("An error occurred!");
+          }
+        });
+    });
   };
 
   return (
@@ -80,7 +88,7 @@ function Register() {
           </h1>
           <form
             onSubmit={handleRegister}
-            className="container  grid grid-cols-2 justify-between gap-4"
+            className=" grid grid-cols-2 justify-between gap-4"
           >
             <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
               <label htmlFor="firstName" className="block text-gray-600">

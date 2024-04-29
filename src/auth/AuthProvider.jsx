@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
@@ -55,6 +56,15 @@ function AuthProvider({ children }) {
     setUserLoader(true);
     return signInWithPopup(auth, facebookProvider);
   };
+
+  // update user profile
+  const updateUserProfile = (userName, photoUrl) => {
+    return updateProfile(auth.currentUser, {
+      displayName: userName,
+      photoURL: photoUrl,
+    });
+  };
+
   // user state managment
   useEffect(() => {
     const unSubscribedUsers = onAuthStateChanged(auth, (userInfo) => {
@@ -82,6 +92,7 @@ function AuthProvider({ children }) {
     signInWithGoogle,
     signInWithGithub,
     signInWithFacebook,
+    updateUserProfile,
   };
   return (
     <>
