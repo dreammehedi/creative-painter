@@ -1,4 +1,5 @@
 import {
+  FacebookAuthProvider,
   GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -48,6 +49,12 @@ function AuthProvider({ children }) {
     return signInWithPopup(auth, githubProvider);
   };
 
+  // sign in facebook account
+  const signInWithFacebook = () => {
+    const facebookProvider = new FacebookAuthProvider();
+    setUserLoader(true);
+    return signInWithPopup(auth, facebookProvider);
+  };
   // user state managment
   useEffect(() => {
     const unSubscribedUsers = onAuthStateChanged(auth, (userInfo) => {
@@ -74,6 +81,7 @@ function AuthProvider({ children }) {
     logoutUser,
     signInWithGoogle,
     signInWithGithub,
+    signInWithFacebook,
   };
   return (
     <>
