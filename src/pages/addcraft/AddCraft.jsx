@@ -200,7 +200,7 @@ function AddCraft() {
 
           <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
             <input
-              value={userData?.email}
+              defaultValue={userData?.email}
               required
               type="email"
               name="email"
@@ -211,7 +211,7 @@ function AddCraft() {
           </div>
           <div className="col-span-6 lg:col-span-3  space-y-1 text-base font-medium">
             <input
-              value={userData?.displayName}
+              defaultValue={userData?.displayName}
               required
               type="text"
               name="name"

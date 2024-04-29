@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Bounce, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ClickToTop from "../components/clicktop/ClickToTop";
 import Footer from "../components/footer/Footer";
@@ -15,11 +15,12 @@ function MainLayout() {
   return (
     <>
       <ToastContainer
+        className={"z-[9999999]"}
         autoClose={2000}
-        closeOnClick
+        closeOnClick={true}
         position="top-right"
-        pauseOnHover
-        transition={Bounce}
+        pauseOnHover={true}
+        transition={"Bounce"}
       ></ToastContainer>
       <Navbar></Navbar>
       <Outlet></Outlet>

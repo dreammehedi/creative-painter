@@ -1,7 +1,8 @@
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../components/header/Logo";
+import DesktopMenuItem from "../header/DesktopMenuItem";
 function Footer() {
   return (
     <footer className="px-4 divide-y bg-gray-100 text-gray-800">
@@ -22,34 +23,10 @@ function Footer() {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center lg:items-start lg:text-left text-center gap-8 ">
-          <div className=" space-y-3">
-            <h3 className="uppercase text-orange-500 font-medium">Shop</h3>
-            <ul className="space-y-1">
-              <li>
-                <NavLink
-                  className={({ isActive }) => {
-                    return isActive;
-                  }}
-                  to={"/all-art-craft"}
-                >
-                  Art & Craft
-                </NavLink>
-              </li>
-              <li>
-                <a rel="noopener noreferrer" href="#">
-                  Integrations
-                </a>
-              </li>
-              <li>
-                <a rel="noopener noreferrer" href="#">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a rel="noopener noreferrer" href="#">
-                  FAQ
-                </a>
-              </li>
+          <div className="space-y-3">
+            <h3 className="uppercase text-orange-500 font-medium">Pages</h3>
+            <ul className="space-y-3">
+              <DesktopMenuItem></DesktopMenuItem>
             </ul>
           </div>
 
@@ -145,7 +122,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center dark:text-gray-600">
+      <div className="py-6 text-sm text-center text-gray-600">
         &copy; {new Date().getFullYear()} 3p Art. All rights reserved.{" "}
         <a
           href="https://www.facebook.com/profile.php?id=61554869056271"
