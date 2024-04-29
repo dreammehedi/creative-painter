@@ -11,12 +11,19 @@ function Craft() {
   //   craft data slice
   const [sliceData, setSliceData] = useState(6);
   useEffect(() => {
-    fetch("https://server-sand-two.vercel.app/crafts")
-      .then((res) => res.json())
-      .then((data) => {
-        setLoading(false);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://server-sand-two.vercel.app/crafts"
+        );
+        const data = await response.json();
         setCraftData(data);
-      });
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchData();
   }, []);
 
   if (loading) {

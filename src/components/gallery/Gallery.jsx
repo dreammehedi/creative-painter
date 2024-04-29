@@ -17,14 +17,20 @@ function Gallery() {
   const [loading, setLoading] = useState(true);
   // gallery data
   const [gallery, setGallery] = useState([]);
-
   useEffect(() => {
-    fetch("https://server-sand-two.vercel.app/art-craft-category")
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://server-sand-two.vercel.app/art-craft-category"
+        );
+        const data = await response.json();
         setGallery(data);
-      });
-    setLoading(false);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchData();
   }, []);
 
   if (loading) {

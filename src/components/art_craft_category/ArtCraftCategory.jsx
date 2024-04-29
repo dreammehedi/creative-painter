@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react";
 import Button from "../button/Button";
+import Loader from "../loader/Loader";
 import SectionTitle from "../section/SectionTitle";
 import ArtCraftCategoryCart from "./ArtCraftCategoryCart";
 
 function ArtCraftCategory() {
   // art craft category data get in database new collection
   const [artCraftCategory, setArtCraftCategory] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   //   craft data slice
   const [sliceData, setSliceData] = useState(6);
 
   useEffect(() => {
-    fetch("https://server-sand-two.vercel.app/art-craft-category")
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://server-sand-two.vercel.app/art-craft-category"
+        );
+        const data = await response.json();
         setArtCraftCategory(data);
-      });
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchData();
   }, []);
 
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <section className="my-4 md:my-6 lg:my-8">
       <div className="container">
