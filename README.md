@@ -1,8 +1,13 @@
-# React + Vite
+# 3P Art (Palette Portrait & Pencil)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to 3P Art, where we celebrate the fusion of palette, portrait, and pencil to create stunning works of art. Dive into our world of portrait drawing and explore the intricate details of human expression captured on paper.
 
-Currently, two official plugins are available:
+### Features:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Palette of Styles:** Immerse yourself in a diverse palette of portrait drawing styles, from classic pencil sketches to vibrant acrylic canvases.
+- **Artist Spotlight:** Discover talented artists who specialize in portrait drawing and learn about their unique creative journeys.
+- **Drawing Workshops:** Elevate your skills with our series of interactive workshops led by experienced artists, covering various techniques and mediums.
+- **Inspiration Gallery:** Find inspiration in our curated gallery showcasing a wide range of portrait drawings, from realistic to abstract interpretations.
+- **Commission Services:** Connect with skilled artists for personalized portrait commissions, tailored to your vision and preferences.
+
+Join us on a journey of creativity and expression at [3P Art](www.3part.com)!

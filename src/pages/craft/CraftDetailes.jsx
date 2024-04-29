@@ -8,7 +8,7 @@ import SlugBanner from "../../components/slug_banner/SlugBanner";
 
 function CraftDetailes() {
   const craftDetailesData = useLoaderData();
-  console.log(craftDetailesData);
+
   const {
     itemName,
     itemImage,
