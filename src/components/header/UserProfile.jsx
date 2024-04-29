@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { toast } from "react-toastify";
 import userIcon from "../../assets/userIcon.png";
@@ -7,6 +7,11 @@ import { AuthContext } from "../../auth/AuthProvider";
 import Button from "../button/Button";
 
 function UserProfile({ handleMobileMenu, showMenu }) {
+  // theme
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
   // user data
   const { userData, logoutUser } = useContext(AuthContext);
 
@@ -20,6 +25,20 @@ function UserProfile({ handleMobileMenu, showMenu }) {
         toast.error("An error occurred!");
       });
   };
+
+  // handle theme
+  const handleTheme = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
   return (
     <>
       <div className="flex justify-center items-center gap-4">
@@ -64,8 +83,11 @@ function UserProfile({ handleMobileMenu, showMenu }) {
         {/* website theme controler */}
         <label className="cursor-pointer grid place-items-center">
           <input
+            onChange={(e) => {
+              handleTheme(e);
+            }}
             type="checkbox"
-            value="synthwave"
+            checked={theme === "light" ? false : true}
             className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
           />
           <svg
