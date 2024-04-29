@@ -38,14 +38,17 @@ function ArtCraftCategory() {
 
         {/* service items */}
         <div className="my-4 md:my-6 lg:my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6">
-          {artCraftCategory.slice(0, `${sliceData}`).map((artCraftData) => {
-            return (
-              <ArtCraftCategoryCart
-                key={artCraftData._id}
-                artCraftData={artCraftData}
-              ></ArtCraftCategoryCart>
-            );
-          })}
+          {artCraftCategory
+            .slice(0, `${sliceData}`)
+            .map((artCraftData, ind) => {
+              return (
+                <ArtCraftCategoryCart
+                  key={artCraftData._id}
+                  index={ind}
+                  artCraftData={artCraftData}
+                ></ArtCraftCategoryCart>
+              );
+            })}
         </div>
 
         {/* view all art craft sub category */}
