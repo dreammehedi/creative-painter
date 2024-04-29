@@ -11,7 +11,7 @@ function Craft() {
   //   craft data slice
   const [sliceData, setSliceData] = useState(6);
   useEffect(() => {
-    fetch("http://localhost:5000/crafts")
+    fetch("https://server-sand-two.vercel.app/crafts")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

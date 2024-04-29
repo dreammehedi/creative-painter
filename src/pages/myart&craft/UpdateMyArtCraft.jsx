@@ -60,7 +60,7 @@ function UpdateMyArtCraft() {
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/crafts/${id}`, {
+        fetch(`https://server-sand-two.vercel.app/crafts/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

@@ -17,7 +17,7 @@ function MyArtCraft() {
   // my art craft data get
   const [myArtCraftData, setMyArtCraftData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/crafts/users/${userData?.email}`)
+    fetch(`https://server-sand-two.vercel.app/crafts/users/${userData?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyArtCraftData(data);
@@ -49,7 +49,7 @@ function MyArtCraft() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/crafts/${itemId}`, {
+        fetch(`https://server-sand-two.vercel.app/crafts/${itemId}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

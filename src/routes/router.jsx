@@ -50,14 +50,16 @@ const router = createBrowserRouter([
           </ProtectRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/crafts/${params.id}`);
+          return fetch(
+            `https://server-sand-two.vercel.app/crafts/${params.id}`
+          );
         },
       },
       {
         path: "/all-arts-crafts",
         element: <AllArtCraft></AllArtCraft>,
         loader: () => {
-          return fetch("http://localhost:5000/crafts");
+          return fetch("https://server-sand-two.vercel.app/crafts");
         },
       },
       {
@@ -68,7 +70,9 @@ const router = createBrowserRouter([
           </ProtectRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/crafts/${params.id}`);
+          return fetch(
+            `https://server-sand-two.vercel.app/crafts/${params.id}`
+          );
         },
       },
       {
@@ -83,7 +87,9 @@ const router = createBrowserRouter([
         path: "/craft-detailes/:id",
         element: <CraftDetailes></CraftDetailes>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/crafts/${params.id}`);
+          return fetch(
+            `https://server-sand-two.vercel.app/crafts/${params.id}`
+          );
         },
       },
       {
@@ -91,7 +97,7 @@ const router = createBrowserRouter([
         element: <AllArtCraftCategory></AllArtCraftCategory>,
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/art-craft-category/${params.subcategory}`
+            `https://server-sand-two.vercel.app/art-craft-category/${params.subcategory}`
           );
         },
       },
@@ -102,7 +108,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/art-craft-subcategory-detailes/${params.id}`
+            `https://server-sand-two.vercel.app/art-craft-subcategory-detailes/${params.id}`
           );
         },
       },

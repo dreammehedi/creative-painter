@@ -40,7 +40,7 @@ function AddCraft() {
       name,
     };
 
-    fetch("http://localhost:5000/crafts", {
+    fetch("https://server-sand-two.vercel.app/crafts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

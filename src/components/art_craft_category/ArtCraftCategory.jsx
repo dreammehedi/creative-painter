@@ -11,7 +11,7 @@ function ArtCraftCategory() {
   const [sliceData, setSliceData] = useState(6);
 
   useEffect(() => {
-    fetch("http://localhost:5000/art-craft-category")
+    fetch("https://server-sand-two.vercel.app/art-craft-category")
       .then((res) => res.json())
       .then((data) => {
         setArtCraftCategory(data);

@@ -19,7 +19,7 @@ function Gallery() {
   const [gallery, setGallery] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/art-craft-category")
+    fetch("https://server-sand-two.vercel.app/art-craft-category")
       .then((res) => res.json())
       .then((data) => {
         setGallery(data);
