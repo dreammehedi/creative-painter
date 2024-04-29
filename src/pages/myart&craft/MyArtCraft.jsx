@@ -17,22 +17,23 @@ function MyArtCraft() {
   // my art craft data get
   const [myArtCraftData, setMyArtCraftData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/crafts")
+    fetch(`http://localhost:5000/crafts/users/${userData?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        if (userData.email) {
-          // my art craft data find
-          const myArtCraftData = data.filter(
-            (item) => item.email === userData?.email
-          );
-          setMyArtCraftData(myArtCraftData);
-        } else {
-          // my art craft data find
-          const myArtCraftData = data.filter((item) => {
-            return item.name === userData?.displayName;
-          });
-          setMyArtCraftData(myArtCraftData);
-        }
+        setMyArtCraftData(data);
+        // if (userData.email) {
+        //   // my art craft data find
+        //   const myArtCraftData = data.filter(
+        //     (item) => item.email === userData?.email
+        //   );
+        //   setMyArtCraftData(myArtCraftData);
+        // } else {
+        //   // my art craft data find
+        //   const myArtCraftData = data.filter((item) => {
+        //     return item.name === userData?.displayName;
+        //   });
+        //   setMyArtCraftData(myArtCraftData);
+        // }
       });
   }, [userData]);
 

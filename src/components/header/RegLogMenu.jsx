@@ -4,7 +4,7 @@ import { AuthContext } from "../../auth/AuthProvider";
 function RegLogMenu() {
   // user data
   const { userData } = useContext(AuthContext);
-  console.log(userData);
+
   return (
     <>
       {!userData && (
