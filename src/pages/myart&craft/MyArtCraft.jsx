@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import errorImage from "../../assets/error-img.jpg";
 import noDataFound from "../../assets/no-data-found.png";
 import { AuthContext } from "../../auth/AuthProvider";
 import Button from "../../components/button/Button";
+import Loader from "../../components/loader/Loader";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 
-import errorImage from "../../assets/error-img.jpg";
 function MyArtCraft() {
+  // loading
+  const [loading, setLoading] = useState(true);
   // find path
   const { pathname } = useLocation();
   // find user email
@@ -17,25 +20,20 @@ function MyArtCraft() {
   // my art craft data get
   const [myArtCraftData, setMyArtCraftData] = useState([]);
   useEffect(() => {
-    fetch(`https://server-sand-two.vercel.app/crafts/users/${userData?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://server-sand-two.vercel.app/crafts/users/${userData?.email}`
+        );
+        const data = await response.json();
         setMyArtCraftData(data);
-        // if (userData.email) {
-        //   // my art craft data find
-        //   const myArtCraftData = data.filter(
-        //     (item) => item.email === userData?.email
-        //   );
-        //   setMyArtCraftData(myArtCraftData);
-        // } else {
-        //   // my art craft data find
-        //   const myArtCraftData = data.filter((item) => {
-        //     return item.name === userData?.displayName;
-        //   });
-        //   setMyArtCraftData(myArtCraftData);
-        // }
-      });
-  }, [userData]);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchData();
+  }, [userData?.email]);
 
   // art craft data delete handler
   const handleArtCraftDelete = (itemId) => {
@@ -81,6 +79,10 @@ function MyArtCraft() {
     const selectedFilter = event.target.value;
     console.log(selectedFilter);
   };
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <>
       <SlugBanner path={pathname}></SlugBanner>
