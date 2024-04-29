@@ -7,6 +7,15 @@
 
 Welcome to 3P Art, where we celebrate the fusion of palette, portrait, and pencil to create stunning works of art. Dive into our world of portrait drawing and explore the intricate details of human expression captured on paper.
 
+### Painting & Drawing SubCategory Features:
+
+- Landscape Painting
+- Portrait Drawing
+- Watercolour Painting
+- Oil Painting
+- Charcoal Sketching
+- Cartoon Drawing
+
 ### Features:
 
 - **Palette of Styles:** Immerse yourself in a diverse palette of portrait drawing styles, from classic pencil sketches to vibrant acrylic canvases.
