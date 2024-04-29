@@ -8,7 +8,7 @@ const menuContent = [
   },
   {
     name: "Art & Craft",
-    path: "/all-art-craft",
+    path: "/all-arts-crafts",
   },
   {
     name: "Add Craft",
