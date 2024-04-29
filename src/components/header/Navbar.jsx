@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DesktopMenuItem from "./DesktopMenuItem";
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
 import RegLogMenu from "./RegLogMenu";
@@ -53,7 +54,7 @@ function Navbar() {
 
         {/* desktop menu */}
         <ul className="hidden lg:flex justify-center items-center gap-4 md:gap-6  font-poppins">
-          <MenuItem></MenuItem>
+          <DesktopMenuItem></DesktopMenuItem>
         </ul>
 
         {/* user profile */}

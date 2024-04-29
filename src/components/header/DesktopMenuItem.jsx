@@ -1,20 +1,13 @@
-import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 import menuContent from "./MenuContent";
-function MenuItem({ handleMobileMenu }) {
+function DesktopMenuItem() {
   return (
     <>
       {menuContent.map((item, ind) => {
         const { name, path } = item;
         return (
-          <li
-            onClick={() => {
-              handleMobileMenu();
-            }}
-            key={ind}
-            className="font-semibold capitalize"
-          >
+          <li key={ind} className="font-semibold capitalize">
             <NavLink
               to={path}
               className={({ isActive }) => {
@@ -29,7 +22,5 @@ function MenuItem({ handleMobileMenu }) {
     </>
   );
 }
-MenuItem.propTypes = {
-  handleMobileMenu: PropTypes.func,
-};
-export default MenuItem;
+
+export default DesktopMenuItem;
