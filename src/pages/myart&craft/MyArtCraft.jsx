@@ -19,6 +19,10 @@ function MyArtCraft() {
 
   // my art craft data get
   const [myArtCraftData, setMyArtCraftData] = useState([]);
+
+  // State to manage the selected option
+  const [selectedFilter, setSelectedFilter] = useState("Filter");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -77,7 +81,21 @@ function MyArtCraft() {
   // handle filter with customization
   const handleCustomizationFilter = (event) => {
     const selectedFilter = event.target.value;
-    console.log(selectedFilter);
+    setSelectedFilter(selectedFilter);
+    setLoading(true);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://server-sand-two.vercel.app/crafts/users/customization/${userData?.email}/${selectedFilter}`
+        );
+        const data = await response.json();
+        setMyArtCraftData(data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchData();
   };
 
   if (loading) {
@@ -97,15 +115,18 @@ function MyArtCraft() {
 
         <div className="my-4 md:my-6 lg:my-8 max-w-sm mx-auto">
           <label
-            htmlFor="countries"
+            htmlFor="customization"
             className="block mb-2 text-base uppercase font-medium text-orange-500 "
           >
             Select Customization
           </label>
           <select
+            value={selectedFilter}
+            name="customization"
             onChange={handleCustomizationFilter}
             className="border  text-white text-base rounded-lg  block w-full p-2.5 bg-orange-900/50 border-orange-900 placeholder-gray-400  focus:ring-orange-500 outline-none focus:border-orange-500"
           >
+            <option disabled>Filter</option>
             <option value="All">All</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
