@@ -17,7 +17,7 @@ function Banner() {
     <>
       <Swiper
         autoplay={{
-          delay: 4000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation]}
