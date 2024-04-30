@@ -20,6 +20,7 @@ function MainLayout() {
         position="top-right"
         pauseOnHover
         transition={Bounce}
+        className={"!z-[999999]"}
       ></ToastContainer>
       <Navbar></Navbar>
       <Outlet></Outlet>
