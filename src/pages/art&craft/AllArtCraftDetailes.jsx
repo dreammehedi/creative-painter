@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation } from "react-router-dom";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
@@ -23,6 +24,9 @@ function AllArtCraftDetailes() {
 
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | All Art Craft Detailes</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
 
       {/* craft detailes infomation */}

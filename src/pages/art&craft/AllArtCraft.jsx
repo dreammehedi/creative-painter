@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import Button from "../../components/button/Button";
 import SectionTitle from "../../components/section/SectionTitle";
@@ -11,6 +12,9 @@ function AllArtCraft() {
   const allArtCraftData = useLoaderData();
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | All Art Craft</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
 
       <SectionTitle title="All Art Craft Data"></SectionTitle>

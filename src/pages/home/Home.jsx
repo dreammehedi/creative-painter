@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import AboutUs from "../../components/about_us/AboutUs";
 import ArtCraftCategory from "../../components/art_craft_category/ArtCraftCategory";
 import Banner from "../../components/banner/Banner";
@@ -8,6 +9,9 @@ import Gallery from "../../components/gallery/Gallery";
 function Home() {
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | Home</title>
+      </Helmet>
       <section>
         <Banner></Banner>
         <Craft></Craft>

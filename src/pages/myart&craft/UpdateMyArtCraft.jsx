@@ -1,4 +1,5 @@
 import CurrencyInput from "react-currency-input-field";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import errorImage from "../../assets/error-img.jpg";
@@ -88,6 +89,9 @@ function UpdateMyArtCraft() {
   };
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | Update Art Craft</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
 
       <div className="container mb-4 md:mb-6 lg:mb-8">

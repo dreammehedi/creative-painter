@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation } from "react-router-dom";
 import errorImage from "../../assets/error-img.jpg";
 import SectionTitle from "../../components/section/SectionTitle";
@@ -23,6 +24,9 @@ function AllArtCraftCategoryCartDetailes() {
   console.log(artCraftCategoryDetailes);
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | All Art Craft Category Detailes</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
 
       {/* craft detailes infomation */}

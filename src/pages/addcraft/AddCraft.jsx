@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import CurrencyInput from "react-currency-input-field";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../auth/AuthProvider";
@@ -115,6 +116,9 @@ function AddCraft() {
   };
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | Add Art Craft</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
       <div className="container  my-4 md:my-6 lg:my-8 rounded-lg">
         <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">

@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -37,6 +38,9 @@ function Login() {
 
   return (
     <>
+    <Helmet>
+        <title>Creative Painter | Login</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
       <div className="container">
         <div className="my-4 md:my-6 lg:my-8 w-full max-w-md mx-auto p-4  md:p-8 space-y-3 rounded-lg bg-gray-50 text-gray-800 ring ring-orange-500">

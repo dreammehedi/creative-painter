@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation } from "react-router-dom";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
@@ -10,6 +11,9 @@ function AllArtCraftCategory() {
   const artCraftCategoryData = useLoaderData();
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | All Art Craft Category</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
       <div className="my-4 md:my-6 lg:my-8">
         <SectionTitle title={`All SubCategory Data`}></SectionTitle>

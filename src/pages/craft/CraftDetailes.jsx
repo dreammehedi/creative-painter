@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaRegFaceGrinStars } from "react-icons/fa6";
 import { GrStatusGood } from "react-icons/gr";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
@@ -26,6 +27,9 @@ function CraftDetailes() {
 
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | Art Craft Detailes</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
 
       {/* craft detailes infomation */}

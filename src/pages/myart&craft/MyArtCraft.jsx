@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import errorImage from "../../assets/error-img.jpg";
@@ -103,6 +104,9 @@ function MyArtCraft() {
   }
   return (
     <>
+      <Helmet>
+        <title>Creative Painter | My Art Craft</title>
+      </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
 
       {/* my art & craft */}
