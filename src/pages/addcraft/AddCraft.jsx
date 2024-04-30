@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -7,10 +7,54 @@ import SlugBanner from "../../components/slug_banner/SlugBanner";
 function AddCraft() {
   // find path
   const { pathname } = useLocation();
-  // handle add item
+
   // user email get
   const { userData } = useContext(AuthContext);
 
+  // sub category
+  const [subCategory, setSubCategory] = useState("Sub Category");
+
+  // stock status
+  const [statusStock, setStatusStock] = useState("Status");
+
+  // customizaion status
+  const [statusCustomization, setStatusCustomization] = useState("Yes/No");
+
+  // time status
+  const [statusTime, setStatusTime] = useState("How Many Days");
+
+  // rating
+  const [ratingValue, setRatingValue] = useState(1);
+
+  // handle sub category
+  const handleSubCategory = (event) => {
+    setSubCategory(event.target.value);
+  };
+
+  // handle stock status
+  const handleStockStatus = (event) => {
+    const selectedStock = event.target.value;
+    setStatusStock(selectedStock);
+  };
+
+  // handle customization
+  const handleCustomizationStatus = (event) => {
+    const selectedCustomization = event.target.value;
+    setStatusCustomization(selectedCustomization);
+  };
+
+  // handle time
+  const handleTimeStatus = (event) => {
+    const selectedTime = event.target.value;
+    setStatusTime(selectedTime);
+  };
+
+  // handle rating
+  const handleRating = (event) => {
+    setRatingValue(event.target.value);
+  };
+
+  // handle add item
   const handleAddItem = (e) => {
     e.preventDefault();
     const currentField = e.target;
@@ -18,13 +62,13 @@ function AddCraft() {
     const subCategoryName = currentField.subCategoryName.value;
     const shortDescription = currentField.shortDescription.value;
     const itemImage = currentField.itemImage.value;
-    const price = currentField.price.value;
+    const price = `$${currentField.price.value}.00`;
     const time = currentField.time.value;
-    const stockStatus = currentField.stockStatus.value;
-    const customization = currentField.customization.value;
+    const stockStatus = statusStock;
+    const customization = statusCustomization;
     const email = currentField.email.value;
     const name = currentField.name.value;
-    const rating = currentField.rating.value;
+    const rating = ratingValue;
 
     const newCraft = {
       itemName,
@@ -56,6 +100,10 @@ function AddCraft() {
             icon: "success",
           });
           currentField.reset();
+          setSubCategory("Sub Category");
+          setStatusStock("Status");
+          setStatusCustomization("Yes/No");
+          setStatusTime("How Many Days");
         } else {
           Swal.fire({
             title: "Error",
@@ -77,6 +125,9 @@ function AddCraft() {
           className="w-full lg:max-w-4xl lg:mx-auto ring-1 ring-orange-500/50 p-4 md:p-6 lg:p-8 my-4 md:my-6 lg:my-8  rounded-lg grid grid-cols-6 justify-between gap-4 md:gap-6"
         >
           <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
+            <label htmlFor="itemName" className="block text-orange-500">
+              Item Name:
+            </label>
             <input
               required
               type="text"
@@ -88,17 +139,31 @@ function AddCraft() {
           </div>
 
           <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
-            <input
-              required
-              type="text"
+            <label htmlFor="subCategoryName" className="block text-orange-500">
+              Sub Category Name:
+            </label>
+            <select
+              onChange={handleSubCategory}
+              value={subCategory}
               name="subCategoryName"
-              id="subCategoryName"
-              placeholder="Enter SubCategory Name..."
-              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-            />
+              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+            >
+              <option className="text-gray-800" disabled>
+                Sub Category
+              </option>
+              <option value="Landscape Painting">Landscape Painting</option>
+              <option value="Portrait Drawing">Portrait Drawing</option>
+              <option value="Watercolour Painting">Watercolour Painting</option>
+              <option value="Oil Painting">Oil Painting</option>
+              <option value="Charcoal Sketching">Charcoal Sketching</option>
+              <option value="Cartoon Drawing">Cartoon Drawing</option>
+            </select>
           </div>
 
           <div className="col-span-6 space-y-1 text-base font-medium">
+            <label htmlFor="shortDescription" className="block text-orange-500">
+              Description:
+            </label>
             <textarea
               required
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
@@ -110,17 +175,23 @@ function AddCraft() {
           </div>
 
           <div className="col-span-6 space-y-1 text-base font-medium">
+            <label htmlFor="itemImage" className="block text-orange-500">
+              Image:
+            </label>
             <input
               required
               type="text"
               name="itemImage"
               id="itemImage"
-              placeholder="Enter Item Image..."
+              placeholder="Enter Item Image Link..."
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
             />
           </div>
 
-          <div className="col-span-6  space-y-1 text-base font-medium grid grid-cols-4 gap-4 md:gap-6 items-center justify-between text-center">
+          <div className="col-span-6 space-y-1 text-base font-medium">
+            <label htmlFor="price" className="block text-orange-500">
+              Price:
+            </label>
             {/* price */}
             <CurrencyInput
               required
@@ -130,78 +201,125 @@ function AddCraft() {
               placeholder="$ Price..."
               decimalsLimit={2}
             ></CurrencyInput>
+          </div>
 
+          <div className="col-span-6  space-y-1 text-base font-medium grid grid-cols-3 gap-4 md:gap-6 items-center justify-between">
             {/* customization */}
-            <div className="col-span-6 lg:col-span-2  space-y-1 text-base font-medium flex items-center gap-2 w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
-              <label>Customization:</label>
-              <input
-                type="radio"
-                id="yes"
+            <div className="col-span-6 lg:col-span-1  space-y-1 flex flex-col items-start text-base font-medium">
+              <label htmlFor="customization" className="block text-orange-500">
+                Customization:
+              </label>
+              <select
+                onChange={handleCustomizationStatus}
+                value={statusCustomization}
                 name="customization"
-                value="Yes"
-                required
-              />
-              <label htmlFor="yes">Yes</label>
-              <input
-                type="radio"
-                id="no"
-                name="customization"
-                value="No"
-                required
-              />
-              <label htmlFor="madeToOrder">No</label>
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              >
+                <option className="text-gray-800" disabled>
+                  Yes/No
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             {/* rating */}
             <div className="col-span-6 lg:col-span-1  space-y-1 flex flex-col items-start text-base font-medium">
-              <input
-                min={1}
-                max={5}
-                type="number"
-                name="rating"
-                id="rating"
-                placeholder="Enter Your Rating..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
+              <label htmlFor="rating" className="block text-orange-500">
+                Rating:
+              </label>
+
+              <div className="rating w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
+                {/* Radio buttons for rating */}
+                <input
+                  type="radio"
+                  name="rating-2"
+                  value="1"
+                  className="mask mask-star-2 bg-orange-400"
+                  onChange={handleRating}
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  value="2"
+                  className="mask mask-star-2 bg-orange-400"
+                  onChange={handleRating}
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  value="3"
+                  className="mask mask-star-2 bg-orange-400"
+                  onChange={handleRating}
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  value="4"
+                  className="mask mask-star-2 bg-orange-400"
+                  onChange={handleRating}
+                />
+                <input
+                  type="radio"
+                  name="rating-2"
+                  value="5"
+                  className="mask mask-star-2 bg-orange-400"
+                  onChange={handleRating}
+                />
+              </div>
+            </div>
+            {/* processing time */}
+            <div className="col-span-6 lg:col-span-1  space-y-1 flex flex-col items-start text-base font-medium">
+              <label htmlFor="time" className="block text-orange-500">
+                Processing Time:
+              </label>
+              <select
+                onChange={handleTimeStatus}
+                value={statusTime}
+                name="time"
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              >
+                <option className="text-gray-800" disabled>
+                  How Many Days
+                </option>
+                <option value="1 Days">1 Days</option>
+                <option value="2 Days">2 Days</option>
+                <option value="3 Days">3 Days</option>
+                <option value="4 Days">4 Days</option>
+                <option value="5 Days">5 Days</option>
+              </select>
             </div>
           </div>
 
-          <div className="col-span-6 space-y-1 text-base font-medium">
-            <input
-              min={1}
-              max={10}
-              required
-              type="number"
-              name="time"
-              id="time"
-              placeholder="Enter Processing Time..."
-              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-            />
-          </div>
-
-          <div className="col-span-6 space-y-1 text-base font-medium flex items-center gap-2 w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
-            <label>Stock Status:</label>
-            <input
-              type="radio"
-              id="inStock"
+          <div className="col-span-6 space-y-1 text-base font-medium focus:ring-orange-500">
+            <label htmlFor="stockStatus" className="block text-orange-500">
+              Stock Status:
+            </label>
+            <select
+              onChange={handleStockStatus}
+              value={statusStock}
               name="stockStatus"
-              value="In stock"
-              required
-            />
-            <label htmlFor="inStock">In stock</label>
-            <input
-              type="radio"
-              id="madeToOrder"
-              name="stockStatus"
-              value="Made to Order"
-              required
-            />
-            <label htmlFor="madeToOrder">Made to Order</label>
+              className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+            >
+              <option className="text-gray-800" disabled>
+                Status
+              </option>
+              <option className="text-green-500" value="In Stock">
+                In Stock
+              </option>
+              <option className="text-red-500" value="Made To Order">
+                Made To Order
+              </option>
+            </select>
           </div>
 
           <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
+            <label htmlFor="email" className="block text-orange-500">
+              Email:
+            </label>
             <input
               defaultValue={userData?.email}
               required
+              readOnly
               type="email"
               name="email"
               id="email"
@@ -210,8 +328,12 @@ function AddCraft() {
             />
           </div>
           <div className="col-span-6 lg:col-span-3  space-y-1 text-base font-medium">
+            <label htmlFor="name" className="block text-orange-500">
+              UserName:
+            </label>
             <input
               defaultValue={userData?.displayName}
+              readOnly
               required
               type="text"
               name="name"
