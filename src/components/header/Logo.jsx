@@ -4,7 +4,7 @@ function Logo({ mainCls, secCls }) {
   return (
     <Link
       to={"/"}
-      className={`${mainCls} text-2xl md:text-3xl lg:text-4xl font-bold capitalize`}
+      className={`${mainCls} text-xl md:text-3xl lg:text-4xl font-bold capitalize`}
     >
       <span
         className={`${secCls} text-orange-500 hover:text-orange-900 transition-all duration-300 ease-linear`}

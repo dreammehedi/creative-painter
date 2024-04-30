@@ -41,7 +41,7 @@ function Navbar() {
         <ul
           className={`${
             showMenu && "!left-0"
-          } lg:hidden fixed top-0 -left-full w-1/2 md:w-1/3 z-[99999] bg-orange-50 flex flex-col h-screen px-8 justify-center items-start rounded-tr-lg rounded-br-lg gap-4 md:gap-6 font-poppins transition-all duration-300 ease-linear`}
+          } lg:hidden fixed top-0 -left-full w-1/2 md:w-1/3 z-[99999] bg-orange-50 flex flex-col h-screen px-8 justify-start pt-8 items-start rounded-tr-lg rounded-br-lg gap-4 md:gap-6 font-poppins transition-all duration-300 ease-linear`}
         >
           {/* menu items */}
           <div className="space-y-6">
