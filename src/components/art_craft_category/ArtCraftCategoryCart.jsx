@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 import errorImage from "../../assets/error-img.jpg";
 // import tooltip styles
 import PropTypes from "prop-types";
-import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
 function ArtCraftCategoryCart({ artCraftData, index }) {
- 
-  const { image, main_category, subcategory_name, item_name, price, rating } =
-    artCraftData;
+  const { image, main_category } = artCraftData;
+  // subcategory_name, item_name, price, rating
   return (
     <Link to={`/all-art-craft-category/${main_category}`}>
       <div
@@ -24,7 +22,7 @@ function ArtCraftCategoryCart({ artCraftData, index }) {
           {main_category}
         </h2>
       </div>
-      <Tooltip id={`tooltip${index}`}>
+      {/* <Tooltip id={`tooltip${index}`}>
         <div className="py-4">
           <p className="text-orange-500 text-xl font-semibold">
             Title: <span className="text-white text-[18px]">{item_name}</span>
@@ -40,7 +38,7 @@ function ArtCraftCategoryCart({ artCraftData, index }) {
             Price: <span className="text-white text-[18px]">{price}</span>
           </p>
         </div>
-      </Tooltip>
+      </Tooltip> */}
     </Link>
   );
 }
