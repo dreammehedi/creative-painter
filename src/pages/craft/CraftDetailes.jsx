@@ -4,6 +4,7 @@ import { GrStatusGood } from "react-icons/gr";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { RxUpdate } from "react-icons/rx";
 import { useLoaderData, useLocation } from "react-router-dom";
+import errorImage from "../../assets/error-img.jpg";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 
@@ -36,12 +37,12 @@ function CraftDetailes() {
       <div className="container my-4 md:my-6 lg:my-8 ">
         <SectionTitle title="Craft Detailes"></SectionTitle>
 
-        <div className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-3 justify-between items-center gap-4 md:gap-6">
+        <div className="mt-4 md:mt-6 lg:mt-8 w-full md:max-w-4xl md:mx-auto">
           <div className="col-span-3 lg:col-span-2 shadow-md p-4 rounded-l">
             {/* craft image */}
             <img
               className="w-full h-auto lg:h-[450px] object-cover rounded-md mb-4"
-              src={itemImage}
+              src={itemImage.startsWith("http") ? itemImage : errorImage}
               alt=""
             />
 
@@ -68,7 +69,7 @@ function CraftDetailes() {
                   </h2>
                   <RiMoneyDollarCircleLine className="text-5xl text-orange-500"></RiMoneyDollarCircleLine>
                   <span className="font-extrabold font-poppins text-2xl">
-                    ${price}
+                    {price}
                   </span>
                 </div>
                 <div className="space-y-3 p-4 w-full md:w-[200px] h-auto shadow-md flex flex-col justify-center items-center text-center">
@@ -101,9 +102,6 @@ function CraftDetailes() {
               </div>
             </div>
           </div>
-
-          {/* more craft */}
-          <div></div>
         </div>
       </div>
     </>

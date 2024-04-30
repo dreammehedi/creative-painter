@@ -170,7 +170,7 @@ function MyArtCraft() {
                     <div>
                       <p>
                         <span className="text-3xl font-bold text-slate-900">
-                          ${price}
+                          {price}
                         </span>
                       </p>
                     </div>

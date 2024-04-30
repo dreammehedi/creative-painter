@@ -1,15 +1,39 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useLoaderData, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import errorImage from "../../assets/error-img.jpg";
 import Button from "../../components/button/Button";
+import Loader from "../../components/loader/Loader";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 
 function AllArtCraft() {
   // find path
   const { pathname } = useLocation();
+  // loading state
+  const [loading, setLoading] = useState(true);
 
-  // all art & craft data get
-  const allArtCraftData = useLoaderData();
+  // all art craft data
+  const [artCraftData, setArtCraftData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://server-sand-two.vercel.app/crafts"
+        );
+        const data = await response.json();
+        setArtCraftData(data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <>
       <Helmet>
@@ -70,7 +94,7 @@ function AllArtCraft() {
               </tr>
             </thead>
             <tbody className="ivide-y divide-orange-300">
-              {allArtCraftData.map((artCraftData, ind) => {
+              {artCraftData.map((artCraftData, ind) => {
                 const {
                   _id,
                   itemImage,
@@ -94,7 +118,11 @@ function AllArtCraft() {
                         <div className="flex-shrink-0 h-10 w-10">
                           <img
                             className="h-10 w-10 rounded-full"
-                            src={itemImage}
+                            src={
+                              itemImage.startsWith("http")
+                                ? itemImage
+                                : errorImage
+                            }
                             alt=""
                           />
                         </div>
@@ -126,7 +154,6 @@ function AllArtCraft() {
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {"$"}
                       {price}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

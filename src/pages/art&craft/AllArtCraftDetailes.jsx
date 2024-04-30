@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation } from "react-router-dom";
+import errorImage from "../../assets/error-img.jpg";
 import SectionTitle from "../../components/section/SectionTitle";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
 
@@ -37,7 +38,7 @@ function AllArtCraftDetailes() {
           {/* craft image */}
           <img
             className="w-full h-auto lg:h-[450px] object-cover rounded-md mb-4"
-            src={itemImage}
+            src={itemImage.startsWith("http") ? itemImage : errorImage}
             alt=""
           />
 
@@ -52,13 +53,16 @@ function AllArtCraftDetailes() {
                   {subCategoryName}
                 </p>
               </div>
-              <p className="text-orange-500 font-medium">{time}</p>
             </div>
 
             <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <p className="text-xl font-poppins text-orange-500">
+                Processing Time:{" "}
+                <span className="text-orange-900 text-[18px]">{time}</span>
+              </p>
+              <p className="text-xl font-poppins text-orange-500">
                 Price:{" "}
-                <span className="text-orange-900 text-[18px]">${price}</span>
+                <span className="text-orange-900 text-[18px]">{price}</span>
               </p>
               <p className="text-xl font-poppins text-orange-500">
                 Rating:{" "}

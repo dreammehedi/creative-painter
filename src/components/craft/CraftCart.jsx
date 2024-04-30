@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import errorImg from "../../assets/error-img.jpg";
 import Button from "../button/Button";
+
 function CraftCart({ craft }) {
   const {
     _id,
@@ -22,7 +23,7 @@ function CraftCart({ craft }) {
       </h1>
       <img
         className="group-hover:scale-[1.02] transition-all duration-300 ease-linear object-cover w-full h-[300px] rounded-md cursor-pointer"
-        src={itemImage ? itemImage : errorImg}
+        src={itemImage.startsWith("http") ? itemImage : errorImg}
         alt=""
       />
       <p className="text-gray-500">{shortDescription}</p>

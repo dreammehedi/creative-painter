@@ -58,9 +58,6 @@ const router = createBrowserRouter([
       {
         path: "/all-arts-crafts",
         element: <AllArtCraft></AllArtCraft>,
-        loader: () => {
-          return fetch("https://server-sand-two.vercel.app/crafts");
-        },
       },
       {
         path: "/art-craft-detailes/:id",
