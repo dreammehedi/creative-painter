@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation } from "react-router-dom";
@@ -26,6 +27,22 @@ function UpdateMyArtCraft() {
     rating,
   } = artCraftDataGet;
 
+  // sub category
+  const [subCategory, setSubCategory] = useState(subCategoryName);
+
+  // stock status
+  const [statusStock, setStatusStock] = useState(stockStatus);
+
+  // customizaion status
+  const [statusCustomization, setStatusCustomization] = useState(customization);
+
+  // time status
+  const [statusTime, setStatusTime] = useState(time);
+
+  const priceSplit = price.split("");
+  const slicePrice = priceSplit.slice(1, priceSplit.length);
+  const numberPrice = Number(slicePrice.join(""));
+
   // handle my art & craft data update
   const handleMyArtCraftUpdate = (e, id) => {
     e.preventDefault();
@@ -38,6 +55,7 @@ function UpdateMyArtCraft() {
     const stockStatus = currentField.stockStatus.value;
     const customization = currentField.customization.value;
     const rating = currentField.rating.value;
+    const time = currentField.time.value;
 
     const updatedArtCraftData = {
       itemName,
@@ -50,7 +68,6 @@ function UpdateMyArtCraft() {
       customization,
       rating,
     };
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -151,14 +168,24 @@ function UpdateMyArtCraft() {
               >
                 Sub Category Name:
               </label>
-              <input
-                defaultValue={subCategoryName}
-                type="text"
+              <select
+                defaultValue={subCategory}
+                onChange={(e) => {
+                  setSubCategory(e.target.value);
+                }}
                 name="subCategoryName"
-                id="subCategoryName"
-                placeholder="Enter SubCategory Name..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              >
+                <option className="text-gray-800"></option>
+                <option value="Landscape Painting">Landscape Painting</option>
+                <option value="Portrait Drawing">Portrait Drawing</option>
+                <option value="Watercolour Painting">
+                  Watercolour Painting
+                </option>
+                <option value="Oil Painting">Oil Painting</option>
+                <option value="Charcoal Sketching">Charcoal Sketching</option>
+                <option value="Cartoon Drawing">Cartoon Drawing</option>
+              </select>
             </div>
 
             <div className="col-span-6 space-y-1 text-base font-medium">
@@ -188,7 +215,7 @@ function UpdateMyArtCraft() {
                   Price:
                 </label>
                 <CurrencyInput
-                  defaultValue={price}
+                  defaultValue={numberPrice}
                   className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
                   id="price"
                   name="price"
@@ -205,24 +232,18 @@ function UpdateMyArtCraft() {
                 >
                   Customization:
                 </label>
-                <div className="flex gap-3 w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
-                  <input
-                    defaultChecked={customization === "Yes"}
-                    type="radio"
-                    id="yes"
-                    name="customization"
-                    value="Yes"
-                  />
-                  <label htmlFor="yes">Yes</label>
-                  <input
-                    defaultChecked={customization === "No"}
-                    type="radio"
-                    id="no"
-                    name="customization"
-                    value="No"
-                  />
-                  <label htmlFor="madeToOrder">No</label>
-                </div>
+                <select
+                  defaultValue={statusCustomization}
+                  onChange={(e) => {
+                    setStatusCustomization(e.target.value);
+                  }}
+                  name="customization"
+                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+                >
+                  <option className="text-gray-800"></option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
               {/* rating */}
               <div className="space-y-1 flex flex-col items-start text-base font-medium">
@@ -252,39 +273,46 @@ function UpdateMyArtCraft() {
               >
                 Date:
               </label>
-              <input
-                defaultValue={time}
-                type="date"
+              <select
+                defaultValue={statusTime}
+                onChange={(e) => {
+                  setStatusTime(e.target.value);
+                }}
                 name="time"
-                id="time"
-                placeholder="Enter Processing Time..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              >
+                <option className="text-gray-800"></option>
+                <option value="1 Days">1 Days</option>
+                <option value="2 Days">2 Days</option>
+                <option value="3 Days">3 Days</option>
+                <option value="4 Days">4 Days</option>
+                <option value="5 Days">5 Days</option>
+              </select>
             </div>
 
-            <div className="col-span-6 space-y-1 text-base font-medium flex items-center gap-2 w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow">
+            <div className="col-span-6 flex flex-col items-start gap-1">
               <label
                 htmlFor="stockStatus"
                 className="inline-block text-orange-500 text-sm font-medium font-poppins uppercase"
               >
                 Stock Status:
               </label>
-              <input
-                defaultChecked={stockStatus === "In stock"}
-                type="radio"
-                id="inStock"
+              <select
+                defaultValue={statusStock}
+                onChange={(e) => {
+                  setStatusStock(e.target.value);
+                }}
                 name="stockStatus"
-                value="In stock"
-              />
-              <label htmlFor="inStock">In stock</label>
-              <input
-                defaultChecked={stockStatus === "Made to Order"}
-                type="radio"
-                id="madeToOrder"
-                name="stockStatus"
-                value="Made to Order"
-              />
-              <label htmlFor="madeToOrder">Made to Order</label>
+                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
+              >
+                <option className="text-gray-800"></option>
+                <option className="text-green-500" value="In Stock">
+                  In Stock
+                </option>
+                <option className="text-red-500" value="Made To Order">
+                  Made To Order
+                </option>
+              </select>
             </div>
 
             <button className="col-span-6 w-full p-3 text-center rounded-md text-gray-50 bg-orange-500 font-poppins font-medium hover:bg-orange-500/50">

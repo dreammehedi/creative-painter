@@ -128,7 +128,6 @@ function AddCraft() {
               Sub Category Name:
             </label>
             <select
-              placeholder="df"
               onChange={(e) => {
                 setSubCategory(e.target.value);
               }}
