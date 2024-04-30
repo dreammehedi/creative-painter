@@ -99,7 +99,7 @@ function UpdateMyArtCraft() {
           <SectionTitle title="Update Art & Craft"></SectionTitle>
         </div>
         {/* update art & craft */}
-        <div className="grid grid-cols-3 justify-between items-center gap-4 md:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 justify-between items-center gap-4 md:gap-6">
           <img
             className="ring-1 ring-orange-500 p-3 rounded-md shadow-lg transition-all duration-300 ease-linear hover:scale-[1.02] cursor-pointer object-contain w-full h-auto"
             src={itemImage.startsWith("http") ? itemImage : errorImage}
@@ -127,7 +127,7 @@ function UpdateMyArtCraft() {
                 className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               />
             </div>
-            <div className="col-span-3 space-y-1 text-base font-medium">
+            <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
               <label
                 htmlFor="itemName"
                 className="inline-block text-orange-500 text-sm font-medium font-poppins uppercase"
@@ -144,7 +144,7 @@ function UpdateMyArtCraft() {
               />
             </div>
 
-            <div className="col-span-3 space-y-1 text-base font-medium">
+            <div className="col-span-6 lg:col-span-3 space-y-1 text-base font-medium">
               <label
                 htmlFor="subCategoryName"
                 className="inline-block text-orange-500 text-sm font-medium font-poppins uppercase"
@@ -178,7 +178,7 @@ function UpdateMyArtCraft() {
               ></textarea>
             </div>
 
-            <div className="col-span-6 space-y-1 text-base font-medium grid grid-cols-4 gap-4 md:gap-6 items-center justify-between text-center">
+            <div className="col-span-6 space-y-1 text-base font-medium grid grid-cols-1 lg:grid-cols-4 gap-4 md:gap-6 items-center justify-between text-center">
               <div className="flex flex-col items-start gap-1">
                 {/* price */}
                 <label
@@ -275,7 +275,6 @@ function UpdateMyArtCraft() {
                 id="inStock"
                 name="stockStatus"
                 value="In stock"
-                required
               />
               <label htmlFor="inStock">In stock</label>
               <input
@@ -284,7 +283,6 @@ function UpdateMyArtCraft() {
                 id="madeToOrder"
                 name="stockStatus"
                 value="Made to Order"
-                required
               />
               <label htmlFor="madeToOrder">Made to Order</label>
             </div>

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../auth/AuthProvider";
 import SlugBanner from "../../components/slug_banner/SlugBanner";
@@ -13,64 +14,32 @@ function AddCraft() {
   const { userData } = useContext(AuthContext);
 
   // sub category
-  const [subCategory, setSubCategory] = useState("Sub Category");
+  const [subCategory, setSubCategory] = useState("");
 
   // stock status
-  const [statusStock, setStatusStock] = useState("Status");
+  const [statusStock, setStatusStock] = useState("");
 
   // customizaion status
-  const [statusCustomization, setStatusCustomization] = useState("Yes/No");
+  const [statusCustomization, setStatusCustomization] = useState("");
 
   // time status
-  const [statusTime, setStatusTime] = useState("How Many Days");
-
-  // rating
-  const [ratingValue, setRatingValue] = useState(1);
-
-  // handle sub category
-  const handleSubCategory = (event) => {
-    setSubCategory(event.target.value);
-  };
-
-  // handle stock status
-  const handleStockStatus = (event) => {
-    const selectedStock = event.target.value;
-    setStatusStock(selectedStock);
-  };
-
-  // handle customization
-  const handleCustomizationStatus = (event) => {
-    const selectedCustomization = event.target.value;
-    setStatusCustomization(selectedCustomization);
-  };
-
-  // handle time
-  const handleTimeStatus = (event) => {
-    const selectedTime = event.target.value;
-    setStatusTime(selectedTime);
-  };
-
-  // handle rating
-  const handleRating = (event) => {
-    setRatingValue(event.target.value);
-  };
+  const [statusTime, setStatusTime] = useState("");
 
   // handle add item
   const handleAddItem = (e) => {
     e.preventDefault();
     const currentField = e.target;
     const itemName = currentField.itemName.value;
-    const subCategoryName = currentField.subCategoryName.value;
+    const subCategoryName = subCategory;
     const shortDescription = currentField.shortDescription.value;
     const itemImage = currentField.itemImage.value;
-    const price = `$${currentField.price.value}.00`;
+    const price = currentField.price.value && `$${currentField.price.value}.00`;
     const time = currentField.time.value;
     const stockStatus = statusStock;
     const customization = statusCustomization;
     const email = currentField.email.value;
     const name = currentField.name.value;
-    const rating = ratingValue;
-
+    const rating = currentField["rating-2"].value;
     const newCraft = {
       itemName,
       subCategoryName,
@@ -84,6 +53,19 @@ function AddCraft() {
       email,
       name,
     };
+    if (
+      !itemName ||
+      !subCategoryName ||
+      !shortDescription ||
+      !itemImage ||
+      !price ||
+      !time ||
+      !stockStatus ||
+      !customization
+    ) {
+      toast.error("All Field Value Must Be Required!");
+      return;
+    }
 
     fetch("https://server-sand-two.vercel.app/crafts", {
       method: "POST",
@@ -133,7 +115,6 @@ function AddCraft() {
               Item Name:
             </label>
             <input
-              required
               type="text"
               name="itemName"
               id="itemName"
@@ -147,14 +128,14 @@ function AddCraft() {
               Sub Category Name:
             </label>
             <select
-              onChange={handleSubCategory}
-              value={subCategory}
+              placeholder="df"
+              onChange={(e) => {
+                setSubCategory(e.target.value);
+              }}
               name="subCategoryName"
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
             >
-              <option className="text-gray-800" disabled>
-                Sub Category
-              </option>
+              <option className="text-gray-800"></option>
               <option value="Landscape Painting">Landscape Painting</option>
               <option value="Portrait Drawing">Portrait Drawing</option>
               <option value="Watercolour Painting">Watercolour Painting</option>
@@ -169,7 +150,6 @@ function AddCraft() {
               Description:
             </label>
             <textarea
-              required
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               name="shortDescription"
               id="shortDescription"
@@ -183,7 +163,6 @@ function AddCraft() {
               Image:
             </label>
             <input
-              required
               type="text"
               name="itemImage"
               id="itemImage"
@@ -198,7 +177,6 @@ function AddCraft() {
             </label>
             {/* price */}
             <CurrencyInput
-              required
               className="col-span-6 lg:col-span-1  w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               id="price"
               name="price"
@@ -214,21 +192,20 @@ function AddCraft() {
                 Customization:
               </label>
               <select
-                onChange={handleCustomizationStatus}
-                value={statusCustomization}
+                onChange={(e) => {
+                  setStatusCustomization(e.target.value);
+                }}
                 name="customization"
                 className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               >
-                <option className="text-gray-800" disabled>
-                  Yes/No
-                </option>
+                <option className="text-gray-800"></option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
             </div>
             {/* rating */}
             <div className="col-span-6 lg:col-span-1  space-y-1 flex flex-col items-start text-base font-medium">
-              <label htmlFor="rating" className="block text-orange-500">
+              <label htmlFor="rating-2" className="block text-orange-500">
                 Rating:
               </label>
 
@@ -239,35 +216,30 @@ function AddCraft() {
                   name="rating-2"
                   value="1"
                   className="mask mask-star-2 bg-orange-400"
-                  onChange={handleRating}
                 />
                 <input
                   type="radio"
                   name="rating-2"
                   value="2"
                   className="mask mask-star-2 bg-orange-400"
-                  onChange={handleRating}
                 />
                 <input
                   type="radio"
                   name="rating-2"
                   value="3"
                   className="mask mask-star-2 bg-orange-400"
-                  onChange={handleRating}
                 />
                 <input
                   type="radio"
                   name="rating-2"
                   value="4"
                   className="mask mask-star-2 bg-orange-400"
-                  onChange={handleRating}
                 />
                 <input
                   type="radio"
                   name="rating-2"
                   value="5"
                   className="mask mask-star-2 bg-orange-400"
-                  onChange={handleRating}
                 />
               </div>
             </div>
@@ -277,14 +249,14 @@ function AddCraft() {
                 Processing Time:
               </label>
               <select
-                onChange={handleTimeStatus}
+                onChange={(e) => {
+                  setStatusTime(e.target.value);
+                }}
                 value={statusTime}
                 name="time"
                 className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
               >
-                <option className="text-gray-800" disabled>
-                  How Many Days
-                </option>
+                <option className="text-gray-800"></option>
                 <option value="1 Days">1 Days</option>
                 <option value="2 Days">2 Days</option>
                 <option value="3 Days">3 Days</option>
@@ -299,14 +271,13 @@ function AddCraft() {
               Stock Status:
             </label>
             <select
-              onChange={handleStockStatus}
-              value={statusStock}
+              onChange={(e) => {
+                setStatusStock(e.target.value);
+              }}
               name="stockStatus"
               className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 !text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
             >
-              <option className="text-gray-800" disabled>
-                Status
-              </option>
+              <option className="text-gray-800"></option>
               <option className="text-green-500" value="In Stock">
                 In Stock
               </option>
@@ -322,7 +293,6 @@ function AddCraft() {
             </label>
             <input
               defaultValue={userData?.email}
-              required
               readOnly
               type="email"
               name="email"
@@ -338,7 +308,6 @@ function AddCraft() {
             <input
               defaultValue={userData?.displayName}
               readOnly
-              required
               type="text"
               name="name"
               id="name"
