@@ -1,6 +1,5 @@
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
-import { Link } from "react-router-dom";
 import Logo from "../../components/header/Logo";
 import DesktopMenuItem from "../header/DesktopMenuItem";
 function Footer() {
@@ -9,13 +8,9 @@ function Footer() {
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-3/4 text-center lg:text-left mr-0 md:mr-4 lg:mr-6">
           <Logo mainCls={"text-orange-500"}></Logo>
-          <Link to={"/"} className="flex flex-col space-y-3 ">
-            <span className="text-2xl font-semibold text-orange-500">
-              Palette Portrait & Pencil
-            </span>
-          </Link>{" "}
+
           <p className="mt-4 text-gray-500">
-            {` At Palette Portrait & Pencil, we believe that art has the power to
+            {` At Creative Painter, we believe that art has the power to
             enrich lives, inspire souls, and forge connections that transcend
             time and space. Whether you're seeking a personalized portrait to
             adorn your walls or a bespoke pencil artwork to gift to a cherished
@@ -37,7 +32,7 @@ function Footer() {
             <div className="space-y-3">
               <p className="text-gray-500">
                 Stay connected with the world of art and creativity by
-                subscribing to the Palette Portrait & Pencil newsletter.
+                subscribing to the Creative Painter newsletter.
               </p>
               <form className="md:max-w-md md:mx-auto">
                 <div className="relative">
@@ -123,7 +118,7 @@ function Footer() {
         </div>
       </div>
       <div className="py-6 text-sm text-center text-gray-600">
-        &copy; {new Date().getFullYear()} 3p Art. All rights reserved.{" "}
+        &copy; {new Date().getFullYear()} Creative Painter. All rights reserved.{" "}
         <a
           href="https://www.facebook.com/profile.php?id=61554869056271"
           target="_blank"

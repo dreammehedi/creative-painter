@@ -6,7 +6,11 @@ function Logo({ mainCls, secCls }) {
       to={"/"}
       className={`${mainCls} text-2xl md:text-3xl lg:text-4xl font-bold capitalize`}
     >
-      3<span className={`${secCls} text-orange-900`}>P</span> Art
+      <span
+        className={`${secCls} text-orange-500 hover:text-orange-900 transition-all duration-300 ease-linear`}
+      >
+        Creative Painter
+      </span>
     </Link>
   );
 }

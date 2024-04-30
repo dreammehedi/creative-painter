@@ -1,11 +1,11 @@
-# 3P Art (Palette Portrait & Pencil)
+# Creative Painter
 
 # Live Link
 
-- [3P Art Firebase](https://p-art-6493f.web.app/)
-- [3P Art Surge](https://painting-drawing.surge.sh/)
+- [Creative Painter Firebase](https://p-art-6493f.web.app/)
+- [Creative Painter Surge](https://painting-drawing.surge.sh/)
 
-Welcome to 3P Art, where we celebrate the fusion of palette, portrait, and pencil to create stunning works of art. Dive into our world of portrait drawing and explore the intricate details of human expression captured on paper.
+Welcome to Creative Painter, where we celebrate the fusion of palette, portrait, and pencil to create stunning works of art. Dive into our world of portrait drawing and explore the intricate details of human expression captured on paper.
 
 ### Painting & Drawing SubCategory Features:
 
@@ -53,4 +53,4 @@ Others npm package used for this website :
 - **Email:** [dreammehedihassan@gmail.com](mailto:dreammehedihassan@gmail.com)
 - **Phone:** (+880) 1783238465
 
-Join us on a journey of creativity and expression at [3P Art](https://painting-drawing.surge.sh/)!
+Join us on a journey of creativity and expression at [Creative Painter](https://painting-drawing.surge.sh/)!
