@@ -43,11 +43,11 @@ function AllArtCraft() {
 
       <SectionTitle title="All Art Craft Data"></SectionTitle>
       {/* all art & craft */}
-      <section className="my-4 md:my-6 lg:my-8">
+      <section className="py-4 md:py-6 lg:py-8 dark:bg-black dark:text-white">
         <div className="container ring ring-orange-500 py-6 rounded-md overflow-x-auto">
           {/* art & craft table */}
-          <table className="w-full divide-y divide-orange-900  ">
-            <thead className="bg-gray-50 font-poppins ">
+          <table className="w-full divide-y divide-orange-900 dark:divide-gray-600  ">
+            <thead className="bg-gray-50 dark:bg-gray-800 font-poppins ">
               <tr>
                 <th
                   scope="col"
@@ -109,7 +109,9 @@ function AllArtCraft() {
                   <tr
                     key={_id}
                     className={`group ${
-                      ind % 2 === 0 ? "bg-orange-50" : "bg-orange-100/70"
+                      ind % 2 === 0
+                        ? "bg-orange-50 dark:bg-orange-950 dark:text-white"
+                        : "bg-orange-100/70 dark:bg-orange-950/70"
                     }`}
                   >
                     <td className="px-6 py-4 whitespace-nowrap">{ind + 1}</td>
@@ -130,14 +132,14 @@ function AllArtCraft() {
                           <div className="text-sm font-medium text-gray-900">
                             {subCategoryName}
                           </div>
-                          <div className="text-sm text-gray-500">
+                          <div className="text-sm text-gray-500 dark:text-white">
                             {itemName}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900 text-wrap break-words">
+                      <div className="text-sm text-gray-900 dark:text-white text-wrap break-words">
                         {shortDescription.slice(0, 30)}
                         {"..."}
                       </div>
@@ -145,18 +147,18 @@ function AllArtCraft() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
                         className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-900/50 text-white ${
-                          stockStatus === "In stock"
-                            ? "bg-green-500"
-                            : "bg-red-500"
+                          stockStatus === "In Stock"
+                            ? "bg-green-500 dark:bg-green-950"
+                            : "bg-red-500 dark:bg-red-500"
                         }`}
                       >
                         {stockStatus}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-white">
                       {price}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-white">
                       {email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap  text-sm font-medium">

@@ -108,133 +108,135 @@ function MyArtCraft() {
         <title>Creative Painter | My Art Craft</title>
       </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
-
-      {/* my art & craft */}
-      <div className="container">
-        <div className="mt-4 md:mt-6 lg:mt-8">
+      <section className="dark:bg-gray-900 dark:text-white  dark:border-t dark:border-gray-800">
+        {/* my art & craft */}
+        <div>
           <SectionTitle title="My Art & Craft"></SectionTitle>
         </div>
+        <div className="container">
+          {/* filter data by customization */}
 
-        {/* filter data by customization */}
+          <div className="my-4 md:my-6 lg:my-8 max-w-sm mx-auto">
+            <label
+              htmlFor="customization"
+              className="block mb-2 text-base uppercase font-medium text-orange-500 "
+            >
+              Select Customization
+            </label>
+            <select
+              value={selectedFilter}
+              name="customization"
+              onChange={handleCustomizationFilter}
+              className="border  text-white text-base rounded-lg  block w-full p-2.5 bg-orange-900/50 border-orange-900 placeholder-gray-400  focus:ring-orange-500 outline-none focus:border-orange-500"
+            >
+              <option disabled>Filter</option>
+              <option value="All">All</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
 
-        <div className="my-4 md:my-6 lg:my-8 max-w-sm mx-auto">
-          <label
-            htmlFor="customization"
-            className="block mb-2 text-base uppercase font-medium text-orange-500 "
-          >
-            Select Customization
-          </label>
-          <select
-            value={selectedFilter}
-            name="customization"
-            onChange={handleCustomizationFilter}
-            className="border  text-white text-base rounded-lg  block w-full p-2.5 bg-orange-900/50 border-orange-900 placeholder-gray-400  focus:ring-orange-500 outline-none focus:border-orange-500"
-          >
-            <option disabled>Filter</option>
-            <option value="All">All</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
+          {myArtCraftData.length > 0 ? (
+            <div className="py-4 md:py-6 lg:py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6 ">
+              {myArtCraftData.map((artCraftData) => {
+                const {
+                  _id,
+                  itemName,
+                  itemImage,
+                  price,
+                  stockStatus,
+                  customization,
+                  rating,
+                } = artCraftData;
+                return (
+                  <div
+                    key={artCraftData._id}
+                    className="group hover:ring-1 hover:scale-[1.01] hover:ring-orange-500 transition-all duration-300 ease-linear relative w-full overflow-hidden rounded-md bg-white dark:bg-gray-700 dark:text-white shadow-md"
+                  >
+                    <img
+                      className="group-hover:scale-[1.02] transition-all duration-300 ease-linear border-b p-2 border-orange-900/50 h-60 w-full rounded-t-lg object-contain"
+                      src={
+                        itemImage?.startsWith("http") ? itemImage : errorImage
+                      }
+                    />
 
-        {myArtCraftData.length > 0 ? (
-          <div className="my-4 md:my-6 lg:my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6 ">
-            {myArtCraftData.map((artCraftData) => {
-              const {
-                _id,
-                itemName,
-                itemImage,
-                price,
-                stockStatus,
-                customization,
-                rating,
-              } = artCraftData;
-              return (
-                <div
-                  key={artCraftData._id}
-                  className="group hover:ring-1 hover:scale-[1.01] hover:ring-orange-500 transition-all duration-300 ease-linear relative w-full overflow-hidden rounded-md bg-white shadow-md"
-                >
-                  <img
-                    className="group-hover:scale-[1.02] transition-all duration-300 ease-linear border-b p-2 border-orange-900/50 h-60 w-full rounded-t-lg object-contain"
-                    src={itemImage?.startsWith("http") ? itemImage : errorImage}
-                  />
+                    <span className="group-hover:rotate-0 group-hover:bg-orange-500 group-hover:translate-x-0 absolute top-0 left-0 w-40 translate-y-8 -translate-x-8 -rotate-45 bg-orange-900/50 text-center text-sm text-white transition-all duration-300 ease-linear">
+                      {stockStatus}
+                    </span>
+                    <div className="mt-4 px-5 pb-5 space-y-4">
+                      <h5 className="text-xl font-semibold tracking-tight text-orange-900 dark:text-orange-500">
+                        {itemName}
+                      </h5>
 
-                  <span className="group-hover:rotate-0 group-hover:bg-orange-500 group-hover:translate-x-0 absolute top-0 left-0 w-40 translate-y-8 -translate-x-8 -rotate-45 bg-orange-900/50 text-center text-sm text-white transition-all duration-300 ease-linear">
-                    {stockStatus}
-                  </span>
-                  <div className="mt-4 px-5 pb-5 space-y-4">
-                    <h5 className="text-xl font-semibold tracking-tight text-orange-900">
-                      {itemName}
-                    </h5>
-
-                    <div>
-                      <p>
-                        <span className="text-3xl font-bold text-slate-900">
-                          {price}
+                      <div>
+                        <p>
+                          <span className="text-3xl font-bold dark:text-white text-slate-900">
+                            {price}
+                          </span>
+                        </p>
+                      </div>
+                      <p className="text-orange-900 dark:text-white font-bold">
+                        Rating:{" "}
+                        <span className="text-white rounded-md p-1 px-2 bg-orange-900 cursor-pointer font-medium">
+                          {rating}
                         </span>
                       </p>
-                    </div>
-                    <p className="text-orange-900 font-bold">
-                      Rating:{" "}
-                      <span className="text-white rounded-md p-1 px-2 bg-orange-900 cursor-pointer font-medium">
-                        {rating}
-                      </span>
-                    </p>
-                    <p className="text-orange-900 font-bold">
-                      Customization:{" "}
-                      <span className="text-white rounded-md p-1 px-2 bg-orange-900 cursor-pointer font-medium">
-                        {customization}
-                      </span>
-                    </p>
-                    <div className="flex justify-between items-center gap-3">
-                      <Link to={`/my-art-craft/${_id}`}>
-                        <Button
-                          name="Update"
-                          cls={"!text-white group-hover:!bg-orange-500"}
-                        ></Button>
-                      </Link>
-                      <div
-                        onClick={() => {
-                          handleArtCraftDelete(_id);
-                        }}
-                      >
-                        <Button
-                          name="Delete"
-                          cls={"!text-white  group-hover:!bg-red-500"}
-                        ></Button>
+                      <p className="text-orange-900 dark:text-white font-bold">
+                        Customization:{" "}
+                        <span className="text-white rounded-md p-1 px-2 bg-orange-900 cursor-pointer font-medium">
+                          {customization}
+                        </span>
+                      </p>
+                      <div className="flex justify-between items-center gap-3">
+                        <Link to={`/my-art-craft/${_id}`}>
+                          <Button
+                            name="Update"
+                            cls={"!text-white group-hover:!bg-orange-500"}
+                          ></Button>
+                        </Link>
+                        <div
+                          onClick={() => {
+                            handleArtCraftDelete(_id);
+                          }}
+                        >
+                          <Button
+                            name="Delete"
+                            cls={"!text-white  group-hover:!bg-red-500"}
+                          ></Button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1  md:grid-cols-2 justify-center gap-6 items-center text-center my-6 md:my-8 lg:my-12">
-            <div className="flex flex-col space-y-3">
-              <h1 className="font-poppins font-bold text-2xl md:text-3xl lg:text-4xl text-orange-500">
-                No Data Found!
-              </h1>
-              <h3 className="text-xl md:text-2xl text-orange-900">
-                Please Add Some Data.
-              </h3>
-              <div>
-                <Link to={"/add-craft"}>
-                  <Button
-                    name={"Add Data"}
-                    cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
-                  ></Button>
-                </Link>
-              </div>
+                );
+              })}
             </div>
-            <img
-              className="h-[300px] object-contain w-auto mx-auto"
-              src={noDataFound}
-              alt="No Data Found!"
-            />
-          </div>
-        )}
-      </div>
+          ) : (
+            <div className="grid grid-cols-1  md:grid-cols-2 justify-center gap-6 items-center text-center my-6 md:my-8 lg:my-12">
+              <div className="flex flex-col space-y-3">
+                <h1 className="font-poppins font-bold text-2xl md:text-3xl lg:text-4xl text-orange-500">
+                  No Data Found!
+                </h1>
+                <h3 className="text-xl md:text-2xl text-orange-900">
+                  Please Add Some Data.
+                </h3>
+                <div>
+                  <Link to={"/add-craft"}>
+                    <Button
+                      name={"Add Data"}
+                      cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
+                    ></Button>
+                  </Link>
+                </div>
+              </div>
+              <img
+                className="h-[300px] object-contain w-auto mx-auto"
+                src={noDataFound}
+                alt="No Data Found!"
+              />
+            </div>
+          )}
+        </div>
+      </section>
     </>
   );
 }

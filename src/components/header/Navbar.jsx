@@ -32,7 +32,7 @@ function Navbar() {
       className={`${
         showTop &&
         "sticky top-0 left-0 z-[9999] shadow-lg border-b border-orange-500/50"
-      } transition-all duration-300 ease-linear w-full bg-white text-black  py-3 flex items-center  h-[70px]`}
+      } transition-all duration-300 ease-linear w-full bg-white text-black dark:bg-black dark:text-white  py-3 flex items-center  h-[70px]`}
     >
       <div className="container flex justify-between items-center">
         {/* logo */}

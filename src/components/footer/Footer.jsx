@@ -4,12 +4,12 @@ import Logo from "../../components/header/Logo";
 import DesktopMenuItem from "../header/DesktopMenuItem";
 function Footer() {
   return (
-    <footer className="px-4 divide-y bg-gray-100 text-gray-800">
+    <footer className="px-4 divide-y bg-gray-100 text-gray-800 dark:bg-black dark:text-white">
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-3/4 text-center lg:text-left mr-0 md:mr-4 lg:mr-6">
           <Logo mainCls={"text-orange-500"}></Logo>
 
-          <p className="mt-4 text-gray-500">
+          <p className="mt-4 text-gray-500 dark:text-gray-300">
             {` At Creative Painter, we believe that art has the power to
             enrich lives, inspire souls, and forge connections that transcend
             time and space. Whether you're seeking a personalized portrait to
@@ -30,7 +30,7 @@ function Footer() {
               Newsletter
             </h3>
             <div className="space-y-3">
-              <p className="text-gray-500">
+              <p className="text-gray-500  dark:text-gray-300">
                 Stay connected with the world of art and creativity by
                 subscribing to the Creative Painter newsletter.
               </p>
@@ -61,14 +61,14 @@ function Footer() {
               <div className="space-y-2 flex flex-col justify-center items-center lg:items-start lg:text-left text-center">
                 <p
                   className="font-bold text-center
-                   flex items-center font-poppins text-orange-900"
+                   flex items-center font-poppins text-orange-900 dark:text-white"
                 >
                   Email:{" "}
                   <span className="font-medium ml-1 ">
                     dreammehedihassan@gmail.com
                   </span>
                 </p>
-                <p className="font-bold flex items-center font-poppins text-orange-900">
+                <p className="font-bold flex items-center font-poppins text-orange-900 dark:text-white">
                   Phone:{" "}
                   <span className="font-medium ml-1">(+880) 1783238465</span>
                 </p>
@@ -117,7 +117,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center text-gray-600">
+      <div className="py-6 text-sm text-center text-gray-500  dark:text-gray-300">
         &copy; {new Date().getFullYear()} Creative Painter. All rights reserved.{" "}
         <a
           href="https://www.facebook.com/profile.php?id=61554869056271"

@@ -12,15 +12,13 @@ function Home() {
       <Helmet>
         <title>Creative Painter | Home</title>
       </Helmet>
-      <section>
-        <Banner></Banner>
-        <Craft></Craft>
-        {/* <Service></Service> */}
-        <ArtCraftCategory></ArtCraftCategory>
-        <AboutUs></AboutUs>
-        <Gallery></Gallery>
-        <ContactUs></ContactUs>
-      </section>
+      <Banner></Banner>
+      <Craft></Craft>
+      {/* <Service></Service> */}
+      <ArtCraftCategory></ArtCraftCategory>
+      <AboutUs></AboutUs>
+      <Gallery></Gallery>
+      <ContactUs></ContactUs>
     </>
   );
 }

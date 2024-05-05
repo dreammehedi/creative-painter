@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { Typewriter } from "react-simple-typewriter";
 function SliderItem({ bg, title, des, children }) {
-  // const titleArr = title.split(":");
+  const titleArr = title.split(":");
 
   return (
     <div
@@ -10,8 +11,8 @@ function SliderItem({ bg, title, des, children }) {
       className="w-full h-full !bg-no-repeat !bg-cover !bg-right-top flex flex-col items-center justify-center"
     >
       <div className="container space-y-3 md:space-y-6 w-full md:max-w-3xl text-center">
-        <h1 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold capitalize font-poppins leading-normal md:!leading-[60px]">
-          {/* <Typewriter
+        <h1 className="text-white dark:text-slate-300 text-2xl md:text-3xl lg:text-4xl font-bold capitalize font-poppins leading-normal md:!leading-[60px]">
+          <Typewriter
             cursor
             cursorBlinking
             cursorColor="#7C2D12"
@@ -20,10 +21,9 @@ function SliderItem({ bg, title, des, children }) {
             loop={0}
             typeSpeed={70}
             words={titleArr}
-          /> */}
-          {title}
+          />
         </h1>
-        <p className="text-slate-300">{des}</p>
+        <p className="text-slate-300 dark:text-slate-200">{des}</p>
         {children}
       </div>
     </div>

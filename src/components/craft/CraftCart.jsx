@@ -15,10 +15,10 @@ function CraftCart({ craft }) {
   } = craft;
   return (
     <div className="space-y-3 cursor-pointer p-4 md:p-6 hover:shadow rounded-lg hover:shadow-orange-500/50 group transition-all duration-300 ease-linear ring-1 ring-orange-500/50">
-      <h1 className="font-semibold text-3xl  text-orange-900 capitalize leading-normal md:!leading-[50px]">
+      <h1 className="font-semibold text-3xl  text-orange-900 dark:text-orange-500 capitalize leading-normal md:!leading-[50px]">
         {itemName}
       </h1>
-      <h1 className="font-semibold text-xl text-orange-500 capitalize ">
+      <h1 className="font-semibold text-xl text-orange-500 dark:text-white capitalize ">
         {subCategoryName}
       </h1>
       <img
@@ -26,7 +26,7 @@ function CraftCart({ craft }) {
         src={itemImage.startsWith("http") ? itemImage : errorImg}
         alt=""
       />
-      <p className="text-gray-500">{shortDescription}</p>
+      <p className="text-gray-500 dark:text-slate-300">{shortDescription}</p>
       <div className="flex items-center gap-4">
         <Button
           name={price}

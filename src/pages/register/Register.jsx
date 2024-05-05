@@ -85,135 +85,155 @@ function Register() {
         <title>Creative Painter | Register</title>
       </Helmet>
       <SlugBanner path={pathname}></SlugBanner>
-      <div className="container">
-        <div className="my-4 md:my-6 lg:my-8 w-full lg:max-w-3xl lg:mx-auto p-4  md:p-8 space-y-3 rounded-lg bg-gray-50 text-gray-800 ring ring-orange-500 ">
-          <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900">
-            Registration
-          </h1>
-          <form
-            onSubmit={handleRegister}
-            className=" grid grid-cols-2 justify-between gap-4"
-          >
-            <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
-              <label htmlFor="firstName" className="block text-gray-600">
-                First Name
-              </label>
-              <input
-                type="text"
-                name="firstName"
-                id="firstName"
-                placeholder="Enter Your FirstName..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
-            </div>
-            <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
-              <label htmlFor="lastName" className="block text-gray-600">
-                Last Name
-              </label>
-              <input
-                type="text"
-                name="lastName"
-                id="lastName"
-                placeholder="Enter Your LastName..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
-            </div>
-            <div className="col-span-2 space-y-1 text-base font-medium">
-              <label htmlFor="email" className="block text-gray-600">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter Your Email..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
-            </div>
-            <div className="col-span-2 space-y-1 text-base font-medium">
-              <label htmlFor="photoURL" className="block text-gray-600">
-                Photo URL
-              </label>
-              <input
-                type="text"
-                name="photoURL"
-                id="photoURL"
-                placeholder="Enter Your Photo URL..."
-                className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-              />
-            </div>
-            <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
-              <label htmlFor="password" className="block text-gray-600">
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  type={showPass ? "text" : "password"}
-                  name="password"
-                  id="password"
-                  placeholder="Enter Your Password..."
-                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-                />
-                <span
-                  onClick={() => {
-                    setShowPass(!showPass);
-                  }}
-                  className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer text-xl text-orange-900"
-                >
-                  {showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
-                </span>
-              </div>
-            </div>
-            <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
-              <label htmlFor="confirmPassword" className="block text-gray-600">
-                Confirm Password
-              </label>
-              <div className="relative">
-                <input
-                  type={cShowPass ? "text" : "password"}
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  placeholder="Enter Your Confirm Password..."
-                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow"
-                />
-
-                <span
-                  onClick={() => {
-                    setCShowPass(!cShowPass);
-                  }}
-                  className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer text-xl text-orange-900"
-                >
-                  {cShowPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
-                </span>
-              </div>
-            </div>
-            <button className="col-span-2 block w-full p-3 text-center rounded-md text-gray-50 bg-orange-500 font-poppins font-medium hover:bg-orange-500/50">
-              Register
-            </button>
-          </form>
-          <div className="flex items-center pt-4 space-x-1">
-            <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-            <p className="px-3 text-sm text-gray-600">
-              Register with social accounts
-            </p>
-            <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-          </div>
-
-          {/* social login */}
-          <SocialLogin></SocialLogin>
-
-          {/* register redirect link */}
-          <p className="text-base text-center sm:px-6 text-gray-600">
-            {` Already have an account? `}
-            <Link
-              to={"/login"}
-              className="capitalize font-semibold text-orange-500 hover:text-orange-900"
+      <section className="dark:bg-black dark:text-white py-4 md:py-6 lg:py-8">
+        <div className="container">
+          <div className="w-full lg:max-w-3xl lg:mx-auto p-4  md:p-8 space-y-3 rounded-lg bg-gray-50 dark:bg-black dark:text-white text-gray-800 ring ring-orange-500 ">
+            <h1 className="text-2xl md:text-3xl font-bold text-center text-orange-900 dark:text-orange-500">
+              Registration
+            </h1>
+            <form
+              onSubmit={handleRegister}
+              className=" grid grid-cols-2 justify-between gap-4"
             >
-              Login
-            </Link>
-          </p>
+              <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
+                <label
+                  htmlFor="firstName"
+                  className="block text-gray-600 dark:text-white"
+                >
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="Enter Your FirstName..."
+                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow dark:bg-transparent dark:text-white"
+                />
+              </div>
+              <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
+                <label
+                  htmlFor="lastName"
+                  className="block text-gray-600 dark:text-white"
+                >
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Enter Your LastName..."
+                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow dark:bg-transparent dark:text-white"
+                />
+              </div>
+              <div className="col-span-2 space-y-1 text-base font-medium">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-600 dark:text-white"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter Your Email..."
+                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow dark:bg-transparent dark:text-white"
+                />
+              </div>
+              <div className="col-span-2 space-y-1 text-base font-medium">
+                <label
+                  htmlFor="photoURL"
+                  className="block text-gray-600 dark:text-white"
+                >
+                  Photo URL
+                </label>
+                <input
+                  type="text"
+                  name="photoURL"
+                  id="photoURL"
+                  placeholder="Enter Your Photo URL..."
+                  className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow dark:bg-transparent dark:text-white"
+                />
+              </div>
+              <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
+                <label
+                  htmlFor="password"
+                  className="block text-gray-600 dark:text-white"
+                >
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="Enter Your Password..."
+                    className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow dark:bg-transparent dark:text-white"
+                  />
+                  <span
+                    onClick={() => {
+                      setShowPass(!showPass);
+                    }}
+                    className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer text-xl text-orange-900 dark:text-white"
+                  >
+                    {showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
+                </div>
+              </div>
+              <div className="col-span-2 lg:col-span-1 space-y-1 text-base font-medium">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-gray-600 dark:text-white"
+                >
+                  Confirm Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={cShowPass ? "text" : "password"}
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    placeholder="Enter Your Confirm Password..."
+                    className="w-full px-4 py-3 rounded-md ring-1 ring-orange-900 bg-gray-50 text-gray-800 focus:ring-orange-500 outline-none  focus:shadow dark:bg-transparent dark:text-white"
+                  />
+
+                  <span
+                    onClick={() => {
+                      setCShowPass(!cShowPass);
+                    }}
+                    className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer text-xl text-orange-900 dark:text-white"
+                  >
+                    {cShowPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
+                </div>
+              </div>
+              <button className="col-span-2 block w-full p-3 text-center rounded-md text-gray-50 bg-orange-500 font-poppins font-medium hover:bg-orange-500/50 dark:bg-orange-900 dark:hover:bg-orange-500">
+                Register
+              </button>
+            </form>
+            <div className="flex items-center pt-4 space-x-1">
+              <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
+              <p className="px-3 text-sm text-gray-600 dark:text-white">
+                Register with social accounts
+              </p>
+              <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
+            </div>
+
+            {/* social login */}
+            <SocialLogin></SocialLogin>
+
+            {/* register redirect link */}
+            <p className="text-base text-center sm:px-6 text-gray-600 dark:text-white">
+              {` Already have an account? `}
+              <Link
+                to={"/login"}
+                className="capitalize font-semibold text-orange-500 hover:text-orange-900"
+              >
+                Login
+              </Link>
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

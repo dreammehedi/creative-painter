@@ -31,11 +31,10 @@ function ArtCraftCategory() {
     return <Loader></Loader>;
   }
   return (
-    <section className="my-4 md:my-6 lg:my-8">
+    <section className="py-4 md:py-6 lg:py-8 dark:text-white dark:bg-black">
+      {/* service title */}
+      <SectionTitle title="Art Craft Category"></SectionTitle>
       <div className="container">
-        {/* service title */}
-        <SectionTitle title="Art Craft Category"></SectionTitle>
-
         {/* service items */}
         <div className="my-4 md:my-6 lg:my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6">
           {artCraftCategory

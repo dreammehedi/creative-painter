@@ -49,7 +49,7 @@ function SocialLogin() {
     <div className="flex justify-center space-x-4">
       <button
         onClick={handleGoogleLogin}
-        className="p-3 bg-orange-500/50 rounded-full text-orange-900 hover:shadow hover:ring-1 hover:ring-orange-500 hover:bg-orange-500 hover:text-white"
+        className="p-3 bg-orange-500/50 rounded-full text-orange-900 hover:shadow hover:ring-1 dark:text-white hover:ring-orange-500 hover:bg-orange-500 hover:text-white"
       >
         <FaGoogle className="size-5"></FaGoogle>
       </button>
@@ -61,7 +61,7 @@ function SocialLogin() {
       </button> */}
       <button
         onClick={handleFacebookLogin}
-        className="p-3 bg-orange-500/50 rounded-full text-orange-900 hover:shadow hover:ring-1 hover:ring-orange-500 hover:bg-orange-500 hover:text-white"
+        className="p-3 bg-orange-500/50 rounded-full text-orange-900 hover:shadow hover:ring-1 dark:text-white hover:ring-orange-500 hover:bg-orange-500 hover:text-white"
       >
         <FaFacebook className="size-5"></FaFacebook>
       </button>

@@ -33,7 +33,9 @@ function Banner() {
           >
             <Button
               name="Explore Now"
-              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
+              cls={
+                "!bg-orange-500 !text-white hover:!bg-orange-900 dark:!bg-black dark:hover:!bg-orange-500"
+              }
             ></Button>
           </SliderItem>
         </SwiperSlide>
@@ -45,7 +47,9 @@ function Banner() {
           >
             <Button
               name="Discover Now"
-              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
+              cls={
+                "!bg-orange-500 !text-white hover:!bg-orange-900 dark:!bg-black dark:hover:!bg-orange-500"
+              }
             ></Button>
           </SliderItem>
         </SwiperSlide>
@@ -57,7 +61,9 @@ function Banner() {
           >
             <Button
               name="View Collection"
-              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
+              cls={
+                "!bg-orange-500 !text-white hover:!bg-orange-900 dark:!bg-black dark:hover:!bg-orange-500"
+              }
             ></Button>
           </SliderItem>
         </SwiperSlide>
@@ -69,7 +75,9 @@ function Banner() {
           >
             <Button
               name="Explore Sketches"
-              cls={"!bg-orange-500 !text-white hover:!bg-orange-900"}
+              cls={
+                "!bg-orange-500 !text-white hover:!bg-orange-900 dark:!bg-black dark:hover:!bg-orange-500"
+              }
             ></Button>
           </SliderItem>
         </SwiperSlide>

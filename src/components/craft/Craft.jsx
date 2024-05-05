@@ -31,7 +31,7 @@ function Craft() {
   }
 
   return (
-    <section>
+    <section className="dark:bg-black dark:text-white">
       {/* craft title */}
       <SectionTitle title="Our Art Craft Items"></SectionTitle>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between gap-4 md:gap-6 ">
@@ -45,7 +45,7 @@ function Craft() {
           onClick={() => {
             setSliceData(sliceData + 3);
           }}
-          className="mt-4 md:mt-6 lg:mt-8 col-span-3 flex justify-center items-center"
+          className="py-4 md:py-6 lg:py-8 col-span-3 flex justify-center items-center"
         >
           <Button
             name={"All Craft"}

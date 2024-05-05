@@ -38,9 +38,9 @@ function Gallery() {
   }
   return (
     <>
-      <section>
+      <section className="dark:bg-black dark:text-white">
         {/* service title */}
-        <div className="container">
+        <div>
           <SectionTitle title="Gallery"></SectionTitle>
         </div>
 
@@ -73,7 +73,7 @@ function Gallery() {
           modules={[Grid, Autoplay, Navigation]}
           navigation
           spaceBetween={30}
-          className="container my-4 md:my-6 lg:my-8"
+          className="container py-4 md:py-6 lg:py-8"
         >
           {gallery.map((galleryItem, ind) => {
             return (
@@ -84,7 +84,7 @@ function Gallery() {
                     src={galleryItem?.image}
                     alt=""
                   />
-                  <h3 className="group-hover:top-1/2 group-hover:opacity-100 transition-all duration-300 ease-linear opacity-0 flex justify-center items-center text-center absolute top-full -translate-x-1/2 -translate-y-1/2 left-1/2 w-full h-full bg-orange-200/50 rounded-md text-xl md:text-2xl text-orange-900 uppercase font-bold ">
+                  <h3 className="group-hover:top-1/2 group-hover:opacity-100 transition-all duration-300 ease-linear opacity-0 flex justify-center items-center text-center absolute top-full -translate-x-1/2 -translate-y-1/2 left-1/2 w-full h-full bg-orange-200/50 dark:bg-orange-950/80 rounded-md text-xl md:text-2xl text-orange-900 dark:text-orange-500 uppercase font-bold ">
                     {galleryItem?.main_category}
                   </h3>
                 </div>
